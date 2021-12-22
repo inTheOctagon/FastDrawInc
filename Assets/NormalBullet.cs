@@ -9,8 +9,16 @@ public class NormalBullet : MonoBehaviour
     private bool spawnCondition;
 
     Vector2 bulletSpawnLoc;
+
+    DuelManager duelManagerScript;
+    
     private void Awake()
     {
+
+        //clicked bullet count context
+        duelManagerScript = GameObject.Find("Duel Manager").GetComponent<DuelManager>();
+
+        //Spawn context
         spawnCondition = true;
         float currentTransformX = transform.position.x;
         float currentTransformY = transform.position.y;
@@ -207,6 +215,7 @@ public class NormalBullet : MonoBehaviour
     {
 
         Instantiate(normalBulletPrefab, bulletSpawnLoc, Quaternion.identity);
+        duelManagerScript.clickedBulletCount = duelManagerScript.clickedBulletCount - 1;
         Destroy(this.gameObject);
         
     }
