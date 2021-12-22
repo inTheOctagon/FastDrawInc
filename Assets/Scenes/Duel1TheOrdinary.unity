@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d3f218495210a44a16e2962545e473, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalBullet: {fileID: 886954538256485090, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
 --- !u!4 &357749010
 Transform:
   m_ObjectHideFlags: 0
@@ -659,23 +660,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &915924537 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 886954538256485090, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
-  m_PrefabInstance: {fileID: 886954539153173723}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &915924540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915924537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b749f2459ef89ff49957d0daca7fd330, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1271493395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,16 +1084,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 886954538256485088, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 886954538256485088, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 886954538256485088, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.06
+      value: -9.04
       objectReference: {fileID: 0}
     - target: {fileID: 886954538256485088, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1146,18 +1122,6 @@ PrefabInstance:
     - target: {fileID: 886954538256485088, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 886954538256485089, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
-      propertyPath: m_Color.b
-      value: 0.11320752
-      objectReference: {fileID: 0}
-    - target: {fileID: 886954538256485089, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
-      propertyPath: m_Color.g
-      value: 0.11320752
-      objectReference: {fileID: 0}
-    - target: {fileID: 886954538256485089, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
-      propertyPath: m_Color.r
-      value: 0.11320752
       objectReference: {fileID: 0}
     - target: {fileID: 886954538256485090, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
       propertyPath: m_Name
