@@ -2,12 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class DuelManager : MonoBehaviour
 {
     [Header("Round Outcome Variables")]
     public float clickedBulletCount = 5;
     private bool bulletCountCondition = false;
+
+    [Header("UI Variables")]
+    [SerializeField] TextMeshProUGUI yourScoreText;
+    private int yourScoreIndex = 0;
+    [SerializeField] TextMeshProUGUI opponentsScoreText;
+    private int opponentsScoreIndex = 0;
 
     [Header("First Bullet Variables")]
     [SerializeField] GameObject normalBullet;
@@ -22,7 +29,12 @@ public class DuelManager : MonoBehaviour
 
     private void Awake()
     {
-        
+
+        // UI text variables
+
+        yourScoreText.text = yourScoreIndex.ToString();
+        opponentsScoreText.text = opponentsScoreIndex.ToString();
+
         StartCoroutine("StartCountdown");
 
         // timer values are set
@@ -44,7 +56,7 @@ public class DuelManager : MonoBehaviour
         if (timerCondition)
         {
             
-            StartTimer();
+            Timer();
 
         }
 
@@ -60,18 +72,20 @@ public class DuelManager : MonoBehaviour
     {
         if (clickedBulletCount == 0)
         {
-            Debug.Log("Victory");
+            yourScoreIndex++;
+            yourScoreText.text = yourScoreIndex.ToString();
             bulletCountCondition = !bulletCountCondition;
         }
     }
 
-    private void StartTimer()
+    private void Timer()
     {
         timerSlider.value -= 1.0f * Time.deltaTime;
 
         if (timerSlider.value == 0)
         {
-            Debug.Log("you lost");
+            opponentsScoreIndex++;
+            opponentsScoreText.text = opponentsScoreIndex.ToString();
             timerCondition = !timerCondition;
         }
     }
