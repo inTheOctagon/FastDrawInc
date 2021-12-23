@@ -10,12 +10,6 @@ public class DuelManager : MonoBehaviour
     public float clickedBulletCount = 5;
     private bool bulletCountCondition = false;
 
-    [Header("UI Variables")]
-    [SerializeField] TextMeshProUGUI yourScoreText;
-    private int yourScoreIndex = 0;
-    [SerializeField] TextMeshProUGUI opponentsScoreText;
-    private int opponentsScoreIndex = 0;
-
     [Header("First Bullet Variables")]
     [SerializeField] GameObject normalBullet;
     private int placeIndex = -1;
@@ -25,6 +19,13 @@ public class DuelManager : MonoBehaviour
     [SerializeField] Slider timerSlider;
     [SerializeField] float timerValue;
     private bool timerCondition = false;
+
+    [Header("UI Variables")]
+    [SerializeField] TextMeshProUGUI yourScoreText;
+    private int yourScoreIndex = 0;
+    [SerializeField] TextMeshProUGUI opponentsScoreText;
+    private int opponentsScoreIndex = 0;
+    [SerializeField] TextMeshProUGUI countdownText;
 
 
     private void Awake()
@@ -148,14 +149,18 @@ public class DuelManager : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
+
+        
         yield return new WaitForSeconds(1);
-        Debug.Log("3");
+        countdownText.enabled = true;
+        countdownText.text = 3.ToString();
         yield return new WaitForSeconds(1);
-        Debug.Log("2");
+        countdownText.text = 2.ToString();
         yield return new WaitForSeconds(1);
-        Debug.Log("1");
+        countdownText.text = 1.ToString();
         yield return new WaitForSeconds(1);
-        Debug.Log("Start!");
+        
+        countdownText.enabled = false;
 
         // spawn area index
         placeIndex = Random.Range(0, 3);

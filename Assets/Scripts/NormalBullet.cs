@@ -213,8 +213,12 @@ public class NormalBullet : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-
-        Instantiate(normalBulletPrefab, bulletSpawnLoc, Quaternion.identity);
+        if(duelManagerScript.clickedBulletCount != 1)
+        {
+            
+            Instantiate(normalBulletPrefab, bulletSpawnLoc, Quaternion.identity);
+            
+        }
         duelManagerScript.clickedBulletCount = duelManagerScript.clickedBulletCount - 1;
         Destroy(this.gameObject);
         
