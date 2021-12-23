@@ -23,14 +23,14 @@ public class NormalBullet : MonoBehaviour
         float currentTransformX = transform.position.x;
         float currentTransformY = transform.position.y;
 
-        if ((-7 <= currentTransformX && currentTransformX <= -1) && (2 <= currentTransformY && currentTransformY <= 5))
+        if ((-6.5f <= currentTransformX && currentTransformX <= -1.5f) && (2.5f <= currentTransformY && currentTransformY <= 4.5f))
         {
 
             int spawnIndex = Random.Range(1, 3);
             if (spawnIndex == 1 && spawnCondition)
             {
-                float xTransform = Random.Range(7f, 1f);
-                float yTransform = Random.Range(2f, 5f);
+                float xTransform = Random.Range(6.5f, 1.5f);
+                float yTransform = Random.Range(2.5f, 4.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -39,8 +39,8 @@ public class NormalBullet : MonoBehaviour
             }
             else if (spawnIndex == 2 && spawnCondition)
             {
-                float xTransform = Random.Range(-7f, -1f);
-                float yTransform = Random.Range(-3f, 0f);
+                float xTransform = Random.Range(-6.5f, -1.5f);
+                float yTransform = Random.Range(-2.5f, -0.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -51,8 +51,8 @@ public class NormalBullet : MonoBehaviour
 
             else if (spawnIndex == 3 && spawnCondition)
             {
-                float xTransform = Random.Range(1f, 7f);
-                float yTransform = Random.Range(-3f, 0f);
+                float xTransform = Random.Range(1.5f, 6.5f);
+                float yTransform = Random.Range(-2.5f, -0.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -65,14 +65,14 @@ public class NormalBullet : MonoBehaviour
 
         }
 
-        else if ((1 <= currentTransformX && currentTransformX <= 7) && (2 <= currentTransformY && currentTransformY <= 5))
+        else if ((1.5f <= currentTransformX && currentTransformX <= 6.5f) && (2.5f <= currentTransformY && currentTransformY <= 4.5f))
         {
 
             int spawnIndex = Random.Range(1, 3);
             if (spawnIndex == 1 && spawnCondition)
             {
-                float xTransform = Random.Range(-7f, -1f);
-                float yTransform = Random.Range(2f, 5f);
+                float xTransform = Random.Range(-6.5f, -1.5f);
+                float yTransform = Random.Range(2.5f, 4.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -81,8 +81,8 @@ public class NormalBullet : MonoBehaviour
             }
             else if (spawnIndex == 2 && spawnCondition)
             {
-                float xTransform = Random.Range(-7f, -1f);
-                float yTransform = Random.Range(-3f, 0f);
+                float xTransform = Random.Range(-6.5f, -1.5f);
+                float yTransform = Random.Range(-2.5f, -0.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -93,8 +93,8 @@ public class NormalBullet : MonoBehaviour
 
             else if (spawnIndex == 3 && spawnCondition)
             {
-                float xTransform = Random.Range(1f, 7f);
-                float yTransform = Random.Range(-3f, 0f);
+                float xTransform = Random.Range(1.5f, 6.5f);
+                float yTransform = Random.Range(-2.5f, -0.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -113,14 +113,14 @@ public class NormalBullet : MonoBehaviour
 
         }
 
-        else if ((-7 <= currentTransformX && currentTransformX <= -1) && (-3 <= currentTransformY && currentTransformY <= 0))
+        else if ((-6.5f <= currentTransformX && currentTransformX <= -1.5f) && (-2.5f <= currentTransformY && currentTransformY <= -0.5f))
         {
 
             int spawnIndex = Random.Range(1, 3);
             if (spawnIndex == 1 && spawnCondition)
             {
-                float xTransform = Random.Range(-7f, -1f);
-                float yTransform = Random.Range(2f, 5f);
+                float xTransform = Random.Range(-6.5f, -1.5f);
+                float yTransform = Random.Range(2.5f, 4.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -129,8 +129,8 @@ public class NormalBullet : MonoBehaviour
             }
             else if (spawnIndex == 2 && spawnCondition)
             {
-                float xTransform = Random.Range(1f, 7f);
-                float yTransform = Random.Range(2f, 5f);
+                float xTransform = Random.Range(1.5f, 6.5f);
+                float yTransform = Random.Range(2.5f, 4.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -141,8 +141,8 @@ public class NormalBullet : MonoBehaviour
 
             else if (spawnIndex == 3 && spawnCondition)
             {
-                float xTransform = Random.Range(1f, 7f);
-                float yTransform = Random.Range(-3f, 0f);
+                float xTransform = Random.Range(1.5f, 6.5f);
+                float yTransform = Random.Range(-2.5f, -0.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -161,14 +161,14 @@ public class NormalBullet : MonoBehaviour
 
         }
 
-        else if ((1 <= currentTransformX && currentTransformX <= 7) && (-3 <= currentTransformY && currentTransformY <= 0))
+        else if ((1.5f <= currentTransformX && currentTransformX <= 6.5f) && (-2.5f <= currentTransformY && currentTransformY <= -0.5f))
         {
 
             int spawnIndex = Random.Range(1, 3);
             if (spawnIndex == 1 && spawnCondition)
             {
-                float xTransform = Random.Range(-7f, -1f);
-                float yTransform = Random.Range(2f, 5f);
+                float xTransform = Random.Range(-6.5f, -1.5f);
+                float yTransform = Random.Range(2.5f, 4.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -177,8 +177,8 @@ public class NormalBullet : MonoBehaviour
             }
             else if (spawnIndex == 2 && spawnCondition)
             {
-                float xTransform = Random.Range(1f, 7f);
-                float yTransform = Random.Range(2f, 5f);
+                float xTransform = Random.Range(1.5f, 6.5f);
+                float yTransform = Random.Range(2.5f, 4.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -189,8 +189,8 @@ public class NormalBullet : MonoBehaviour
 
             else if (spawnIndex == 3 && spawnCondition)
             {
-                float xTransform = Random.Range(1f, 7f);
-                float yTransform = Random.Range(-3f, 0f);
+                float xTransform = Random.Range(1.5f, 6.5f);
+                float yTransform = Random.Range(-2.5f, -0.5f);
 
                 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
