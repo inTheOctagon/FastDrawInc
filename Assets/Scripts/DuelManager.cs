@@ -10,10 +10,11 @@ public class DuelManager : MonoBehaviour
     public float clickedBulletCount = 5;
     private bool bulletCountCondition = false;
 
-    [Header("First Bullet Variables")]
+    [Header("Bullet Variables")]
     [SerializeField] GameObject normalBullet;
     private int placeIndex = -1;
     private bool mainSpawnCondition = true;
+    
     
     [Header("Timer Variables")]
     [SerializeField] Slider timerSlider;
@@ -26,15 +27,21 @@ public class DuelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI opponentsScoreText;
     private int opponentsScoreIndex = 0;
     [SerializeField] TextMeshProUGUI countdownText;
+    //UI Animation
+    [SerializeField] GameObject scorePanel;
+    private Animator scoreAnimator;
 
 
     private void Awake()
     {
+        
 
         // UI text variables
 
-        yourScoreText.text = yourScoreIndex.ToString();
-        opponentsScoreText.text = opponentsScoreIndex.ToString();
+        //yourScoreText.text = yourScoreIndex.ToString();
+        //opponentsScoreText.text = opponentsScoreIndex.ToString();
+
+        scoreAnimator = scorePanel.GetComponent<Animator>();
 
         StartCoroutine("StartCountdown");
 
@@ -86,8 +93,11 @@ public class DuelManager : MonoBehaviour
         if (timerSlider.value == 0)
         {
             opponentsScoreIndex++;
-            opponentsScoreText.text = opponentsScoreIndex.ToString();
+            //opponentsScoreText.text = opponentsScoreIndex.ToString();
             timerCondition = !timerCondition;
+            StartCoroutine("TimerOutput");
+            var bullet = GameObject.FindGameObjectWithTag("Bullet");
+            Destroy(bullet);
         }
     }
 
@@ -171,6 +181,17 @@ public class DuelManager : MonoBehaviour
         // enables clickedBulletCount context
         bulletCountCondition = true;
 
+
+    }
+
+    IEnumerator TimerOutput()
+    {
+        yield return new WaitForSeconds(0.5f);
+        scoreAnimator.SetBool("UIScoresAnim", true);
+        yield return new WaitForSeconds(1.3f);
+        opponentsScoreText.text = opponentsScoreIndex.ToString();
+        yield return new WaitForSeconds(1.9f);
+        scoreAnimator.SetBool("UIScoresAnim", false);
 
     }
 

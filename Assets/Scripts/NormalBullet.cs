@@ -14,6 +14,8 @@ public class NormalBullet : MonoBehaviour
     
     private void Awake()
     {
+        //self destruct on defeat for the end
+        
 
         //clicked bullet count context
         duelManagerScript = GameObject.Find("Duel Manager").GetComponent<DuelManager>();
@@ -210,6 +212,10 @@ public class NormalBullet : MonoBehaviour
         }
 
     }
+
+
+    
+        
 
     private void OnMouseUpAsButton()
     {
