@@ -9,6 +9,7 @@ public class DuelManager : MonoBehaviour
     [Header("Round Outcome Variables")]
     public float clickedBulletCount = 5;
     private bool bulletCountCondition = false;
+    private bool roundEnderCondition = false;
 
     [Header("Bullet Variables")]
     [SerializeField] GameObject normalBullet;
@@ -37,9 +38,6 @@ public class DuelManager : MonoBehaviour
         
 
         // UI text variables
-
-        //yourScoreText.text = yourScoreIndex.ToString();
-        //opponentsScoreText.text = opponentsScoreIndex.ToString();
 
         scoreAnimator = scorePanel.GetComponent<Animator>();
 
@@ -73,6 +71,21 @@ public class DuelManager : MonoBehaviour
             CountBulletsForVictory();
         }
         
+        if(roundEnderCondition)
+        {
+            if(opponentsScoreIndex == 3)
+            {
+                // character animation
+                // scene transtion to a grave
+
+            }
+            else if(yourScoreIndex == 3)
+            {
+
+                //character animation
+                //scene transition
+            }
+        }
 
     }
 
@@ -81,7 +94,7 @@ public class DuelManager : MonoBehaviour
         if (clickedBulletCount == 0)
         {
             yourScoreIndex++;
-            yourScoreText.text = yourScoreIndex.ToString();
+            StartCoroutine("PlayerWinOutput");
             bulletCountCondition = !bulletCountCondition;
         }
     }
@@ -89,16 +102,17 @@ public class DuelManager : MonoBehaviour
     private void Timer()
     {
         timerSlider.value -= 1.0f * Time.deltaTime;
-
+        
         if (timerSlider.value == 0)
         {
             opponentsScoreIndex++;
             //opponentsScoreText.text = opponentsScoreIndex.ToString();
             timerCondition = !timerCondition;
-            StartCoroutine("TimerOutput");
+            StartCoroutine("OpponentWinOutput");
             var bullet = GameObject.FindGameObjectWithTag("Bullet");
             Destroy(bullet);
         }
+        
     }
 
     private void SpawnFirstBullet()
@@ -159,8 +173,8 @@ public class DuelManager : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
-
-        
+        clickedBulletCount = 5;
+        timerSlider.value = 5;
         yield return new WaitForSeconds(1);
         countdownText.enabled = true;
         countdownText.text = 3.ToString();
@@ -184,7 +198,25 @@ public class DuelManager : MonoBehaviour
 
     }
 
-    IEnumerator TimerOutput()
+    IEnumerator PlayerWinOutput()
+    {
+        yield return new WaitForSeconds(0.5f);
+        scoreAnimator.SetBool("UIScoresAnim", true);
+        yield return new WaitForSeconds(1.3f);
+        yourScoreText.text = yourScoreIndex.ToString();
+        yield return new WaitForSeconds(1.9f);
+        scoreAnimator.SetBool("UIScoresAnim", false);
+        yield return new WaitForSeconds(1);
+        if( yourScoreIndex != 3)
+        {
+            StartCoroutine("StartCountdown");
+        }
+            
+
+
+    }
+
+    IEnumerator OpponentWinOutput()
     {
         yield return new WaitForSeconds(0.5f);
         scoreAnimator.SetBool("UIScoresAnim", true);
@@ -192,6 +224,12 @@ public class DuelManager : MonoBehaviour
         opponentsScoreText.text = opponentsScoreIndex.ToString();
         yield return new WaitForSeconds(1.9f);
         scoreAnimator.SetBool("UIScoresAnim", false);
+        yield return new WaitForSeconds(1);
+        if(opponentsScoreIndex != 3)
+        {
+            StartCoroutine("StartCountdown");
+        }
+        
 
     }
 
