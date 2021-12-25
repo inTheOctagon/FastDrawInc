@@ -29,6 +29,8 @@ public class DuelManager : MonoBehaviour
     private int opponentsScoreIndex = 0;
     [SerializeField] TextMeshProUGUI countdownText;
     private bool timerFiller = false;
+    RaycastHit2D boardHit;
+    [SerializeField] GameObject timerPenaltyText;
     //UI Animation
     [SerializeField] GameObject scorePanel;
     private Animator scoreAnimator;
@@ -82,11 +84,13 @@ public class DuelManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Mouse0) && timerCondition)
         {
             Vector2 boardRay = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D boardHit = Physics2D.Raycast(boardRay, Vector2.zero);
+            boardHit = Physics2D.Raycast(boardRay, Vector2.zero);
 
             if (boardHit.collider.CompareTag("Board"))
             {
                 timerSlider.value = timerSlider.value - 0.25f;
+                StartCoroutine("TimerPenaltyText");
+                
             }
         }
         
@@ -173,6 +177,21 @@ public class DuelManager : MonoBehaviour
         }
         else return;
 
+    }
+
+    IEnumerator TimerPenaltyText()
+    {
+        //set the position correctly
+        //var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //pos.z = 0; //distance of the plane from the camera
+        //timerPenaltyText.transform.position = Camera.main.ScreenToWorldPoint(pos);
+
+
+        timerPenaltyText.SetActive(true);
+
+        
+        yield return new WaitForSeconds(0.5f);
+        timerPenaltyText.SetActive(false);
     }
 
     IEnumerator StartCountdown()
