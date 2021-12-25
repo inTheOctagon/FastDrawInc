@@ -133,9 +133,10 @@ GameObject:
   m_Component:
   - component: {fileID: 168801024}
   - component: {fileID: 168801023}
+  - component: {fileID: 168801025}
   m_Layer: 0
   m_Name: Bullet Board
-  m_TagString: Untagged
+  m_TagString: Board
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,6 +206,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &168801025
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168801022}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 16, y: 10}
+    newSize: {x: 16, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 16, y: 10}
+  m_EdgeRadius: 0
 --- !u!1 &180177643
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,6 +370,9 @@ MonoBehaviour:
   normalBullet: {fileID: 886954538256485090, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
   timerSlider: {fileID: 1693687458}
   timerValue: 3.75
+  boardLayer:
+    serializedVersion: 2
+    m_Bits: 0
   yourScoreText: {fileID: 390622904}
   opponentsScoreText: {fileID: 1141780526}
   countdownText: {fileID: 1282166256}

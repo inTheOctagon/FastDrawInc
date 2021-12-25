@@ -16,11 +16,11 @@ public class DuelManager : MonoBehaviour
     private int placeIndex = -1;
     private bool mainSpawnCondition = true;
     
-    
     [Header("Timer Variables")]
     [SerializeField] Slider timerSlider;
     [SerializeField] float timerValue;
     private bool timerCondition = false;
+    [SerializeField] LayerMask boardLayer;
 
     [Header("UI Variables")]
     [SerializeField] TextMeshProUGUI yourScoreText;
@@ -77,22 +77,19 @@ public class DuelManager : MonoBehaviour
         {
             CountBulletsForVictory();
         }
-        
-        if(roundEnderCondition)
+
+        // timer penalty for when player clicks outside of a bullet
+        if(Input.GetKeyDown(KeyCode.Mouse0) && timerCondition)
         {
-            if(opponentsScoreIndex == 3)
-            {
-                // character animation
-                // scene transtion to a grave
+            Vector2 boardRay = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            RaycastHit2D boardHit = Physics2D.Raycast(boardRay, Vector2.zero);
 
-            }
-            else if(yourScoreIndex == 3)
+            if (boardHit.collider.CompareTag("Board"))
             {
-
-                //character animation
-                //scene transition
+                timerSlider.value = timerSlider.value - 0.25f;
             }
         }
+        
 
     }
 
