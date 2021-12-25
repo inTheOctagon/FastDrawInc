@@ -28,6 +28,7 @@ public class DuelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI opponentsScoreText;
     private int opponentsScoreIndex = 0;
     [SerializeField] TextMeshProUGUI countdownText;
+    private bool timerFiller = false;
     //UI Animation
     [SerializeField] GameObject scorePanel;
     private Animator scoreAnimator;
@@ -66,7 +67,13 @@ public class DuelManager : MonoBehaviour
 
         }
 
-        if(bulletCountCondition)
+        if (timerFiller)
+        {
+            timerSlider.value += 3.5f * Time.deltaTime;
+            
+        }
+
+        if (bulletCountCondition)
         {
             CountBulletsForVictory();
         }
@@ -174,7 +181,9 @@ public class DuelManager : MonoBehaviour
     IEnumerator StartCountdown()
     {
         clickedBulletCount = 5;
-        timerSlider.value = 5;
+
+        timerFiller = false;
+        
         yield return new WaitForSeconds(1);
         countdownText.enabled = true;
         countdownText.text = 3.ToString();
@@ -200,12 +209,15 @@ public class DuelManager : MonoBehaviour
 
     IEnumerator PlayerWinOutput()
     {
+        timerCondition = false;
         yield return new WaitForSeconds(0.5f);
         scoreAnimator.SetBool("UIScoresAnim", true);
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.8f);
         yourScoreText.text = yourScoreIndex.ToString();
-        yield return new WaitForSeconds(1.9f);
+        yield return new WaitForSeconds(2.4f);
         scoreAnimator.SetBool("UIScoresAnim", false);
+        yield return new WaitForSeconds(1);
+        if (yourScoreIndex != 3) timerFiller = true;
         yield return new WaitForSeconds(1);
         if( yourScoreIndex != 3)
         {
@@ -218,14 +230,17 @@ public class DuelManager : MonoBehaviour
 
     IEnumerator OpponentWinOutput()
     {
+        bulletCountCondition = false;
         yield return new WaitForSeconds(0.5f);
         scoreAnimator.SetBool("UIScoresAnim", true);
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(1.8f);
         opponentsScoreText.text = opponentsScoreIndex.ToString();
-        yield return new WaitForSeconds(1.9f);
+        yield return new WaitForSeconds(2.4f);
         scoreAnimator.SetBool("UIScoresAnim", false);
         yield return new WaitForSeconds(1);
-        if(opponentsScoreIndex != 3)
+        if (opponentsScoreIndex != 3) timerFiller = true;
+        yield return new WaitForSeconds(1);
+        if (opponentsScoreIndex != 3)
         {
             StartCoroutine("StartCountdown");
         }
