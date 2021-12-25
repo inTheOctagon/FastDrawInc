@@ -218,7 +218,7 @@ public class DuelManager : MonoBehaviour
         scoreAnimator.SetBool("UIScoresAnim", false);
         yield return new WaitForSeconds(1);
         if (yourScoreIndex != 3) timerFiller = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         if( yourScoreIndex != 3)
         {
             StartCoroutine("StartCountdown");
@@ -239,7 +239,7 @@ public class DuelManager : MonoBehaviour
         scoreAnimator.SetBool("UIScoresAnim", false);
         yield return new WaitForSeconds(1);
         if (opponentsScoreIndex != 3) timerFiller = true;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1.5f);
         if (opponentsScoreIndex != 3)
         {
             StartCoroutine("StartCountdown");
