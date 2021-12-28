@@ -12,8 +12,15 @@ public class NormalBullet : MonoBehaviour
 
     DuelManager duelManagerScript;
     
+
+    
+    
     private void Awake()
     {
+        //bullet size
+
+        this.gameObject.transform.localScale = new Vector2(ValueManager.newBulletSize, ValueManager.newBulletSize);
+
         //clicked bullet count context
         duelManagerScript = GameObject.Find("Duel Manager").GetComponent<DuelManager>();
 

@@ -20,9 +20,8 @@ public class DuelManager : MonoBehaviour
     
     [Header("Timer Variables")]
     [SerializeField] Slider timerSlider;
-    [SerializeField] float timerValue;
+    public float timerValue;
     private bool timerCondition = false;
-    
 
     [Header("UI Variables")]
     [SerializeField] TextMeshProUGUI yourScoreText;
@@ -50,7 +49,7 @@ public class DuelManager : MonoBehaviour
         StartCoroutine("StartCountdown");
 
         // timer values are set
-        
+        timerValue = ValueManager.newTimerValue;
         timerSlider.maxValue = timerValue;
         timerSlider.value = timerValue;
 
@@ -229,19 +228,20 @@ public class DuelManager : MonoBehaviour
         yield return new WaitForSeconds(2.4f);
         scoreAnimator.SetBool("UIScoresAnim", false);
         yield return new WaitForSeconds(1);
-        if (yourScoreIndex != 3) timerFiller = true;
-        yield return new WaitForSeconds(1.5f);
-        if( yourScoreIndex != 3)
+        if (yourScoreIndex != 3)
+        {
+            timerFiller = true;
+            yield return new WaitForSeconds(1.5f);
+        }
+        if ( yourScoreIndex != 3)
         {
             StartCoroutine("StartCountdown");
         }
-        //else 
-        //{
+        else
+        {
+            tournamentManager.nextScene();
+        }
 
-        
-
-        //}
-            
 
 
     }
@@ -256,8 +256,12 @@ public class DuelManager : MonoBehaviour
         yield return new WaitForSeconds(2.4f);
         scoreAnimator.SetBool("UIScoresAnim", false);
         yield return new WaitForSeconds(1);
-        if (opponentsScoreIndex != 3) timerFiller = true;
-        yield return new WaitForSeconds(1.5f);
+        if (opponentsScoreIndex != 3)
+        {
+            timerFiller = true;
+            yield return new WaitForSeconds(1.5f);    
+        }
+        
         if (opponentsScoreIndex != 3)
         {
             StartCoroutine("StartCountdown");

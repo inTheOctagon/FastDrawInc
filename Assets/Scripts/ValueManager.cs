@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ValueManager : MonoBehaviour
 {
-    [SerializeField] GameObject normalBulletPrefab;
+    //bullet size
+    
+    public static float newBulletSize = 1;
+    //timer value
+    
+    public static float newTimerValue = 4;
 
-    public static float bulletsize = 1;
-
-    private void Start()
-    {
-        normalBulletPrefab.transform.localScale = new Vector2(bulletsize, bulletsize);
-    }
+    
 
 }
