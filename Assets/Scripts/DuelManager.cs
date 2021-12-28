@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -9,7 +10,8 @@ public class DuelManager : MonoBehaviour
     [Header("Round Outcome Variables")]
     public float clickedBulletCount = 5;
     private bool bulletCountCondition = false;
-    private bool roundEnderCondition = false;
+    [SerializeField] GameObject tournamentManagerObject;
+    private TournamentManager tournamentManager;
 
     [Header("Bullet Variables")]
     [SerializeField] GameObject normalBullet;
@@ -20,7 +22,7 @@ public class DuelManager : MonoBehaviour
     [SerializeField] Slider timerSlider;
     [SerializeField] float timerValue;
     private bool timerCondition = false;
-    [SerializeField] LayerMask boardLayer;
+    
 
     [Header("UI Variables")]
     [SerializeField] TextMeshProUGUI yourScoreText;
@@ -31,7 +33,7 @@ public class DuelManager : MonoBehaviour
     private bool timerFiller = false;
     RaycastHit2D boardHit;
     [SerializeField] GameObject timerPenaltyText;
-    [SerializeField] RectTransform timerPenaltyTextPos;
+    
     //UI Animation
     [SerializeField] GameObject scorePanel;
     private Animator scoreAnimator;
@@ -39,7 +41,7 @@ public class DuelManager : MonoBehaviour
 
     private void Awake()
     {
-        
+        tournamentManager = tournamentManagerObject.GetComponent<TournamentManager>();
 
         // UI text variables
 
@@ -233,6 +235,12 @@ public class DuelManager : MonoBehaviour
         {
             StartCoroutine("StartCountdown");
         }
+        //else 
+        //{
+
+        
+
+        //}
             
 
 
@@ -253,6 +261,10 @@ public class DuelManager : MonoBehaviour
         if (opponentsScoreIndex != 3)
         {
             StartCoroutine("StartCountdown");
+        }
+        else
+        {
+            tournamentManager.youareDeadScene();
         }
         
 
