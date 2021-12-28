@@ -31,6 +31,7 @@ public class DuelManager : MonoBehaviour
     private bool timerFiller = false;
     RaycastHit2D boardHit;
     [SerializeField] GameObject timerPenaltyText;
+    [SerializeField] RectTransform timerPenaltyTextPos;
     //UI Animation
     [SerializeField] GameObject scorePanel;
     private Animator scoreAnimator;
@@ -181,16 +182,9 @@ public class DuelManager : MonoBehaviour
 
     IEnumerator TimerPenaltyText()
     {
-        //set the position correctly
-        //var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //pos.z = 0; //distance of the plane from the camera
-        //timerPenaltyText.transform.position = Camera.main.ScreenToWorldPoint(pos);
-
-
+        timerPenaltyText.transform.position = Input.mousePosition; 
         timerPenaltyText.SetActive(true);
-
-        
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         timerPenaltyText.SetActive(false);
     }
 
