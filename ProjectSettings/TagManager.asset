@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Board
-  - TarAndFeatherTrigger
+  - TarAndFeather
   layers:
   - Default
   - TransparentFX
