@@ -6,21 +6,42 @@ public class Dog : MonoBehaviour
 {
     [SerializeField] float dogSpeed = 3;
     Vector2 targetPos;
-    Vector2 startPos;
+    Vector3 startPos;
+    float startLocalScaleX;
 
     [SerializeField] GameObject duelManager;
+
+    
 
 
     private void Start()
     {
-        startPos = transform.position;  
+
+        startPos = transform.position;
+        startLocalScaleX = transform.localScale.x;
+
     }
 
     private void Update()
     {
         DogMovement();
         DogReaching();
+        DogFlipper();
 
+    }
+
+    private void DogFlipper()
+    {
+        var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        if (mousePos.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(-startLocalScaleX, transform.localScale.y, transform.localScale.z);
+        }
+        else
+        {
+            transform.localScale = new Vector3(startLocalScaleX, transform.localScale.y, transform.localScale.z);
+        }
     }
 
     private void DogMovement()
@@ -29,10 +50,14 @@ public class Dog : MonoBehaviour
         {
             targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = Vector2.MoveTowards(transform.position, targetPos, dogSpeed * Time.deltaTime);
+            this.gameObject.GetComponent<Animator>().SetBool("DogAnimationCondition", true);
+
+
         }
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, startPos, dogSpeed * Time.deltaTime);
+            if(transform.position == startPos) this.gameObject.GetComponent<Animator>().SetBool("DogAnimationCondition", false);
         }
     }
 
