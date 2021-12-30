@@ -28,6 +28,11 @@ public class tafScript : MonoBehaviour
         }
     }
 
+    private void OnMouseExit()
+    {
+        StartCoroutine("normalCursorSetter");
+    }
+
     IEnumerator TimerPenaltyText()
     {
         
@@ -41,13 +46,17 @@ public class tafScript : MonoBehaviour
     IEnumerator ppSetter()
     {
         penaltyInterval = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.8f);
         penaltyInterval = true;
     }
 
-    private void OnMouseExit()
+    IEnumerator normalCursorSetter()
     {
+        yield return new WaitForSeconds(0.5f);
         cursorHotspot = new Vector2(normalCursor.width / 2, normalCursor.height / 2);
         Cursor.SetCursor(normalCursor, cursorHotspot, CursorMode.ForceSoftware);
+        
     }
+
+    
 }
