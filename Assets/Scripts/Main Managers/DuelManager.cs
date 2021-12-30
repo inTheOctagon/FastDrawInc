@@ -116,14 +116,19 @@ public class DuelManager : MonoBehaviour
         
         if (timerSlider.value == 0)
         {
-            opponentsScoreIndex++;
-            //opponentsScoreText.text = opponentsScoreIndex.ToString();
-            timerCondition = !timerCondition;
-            StartCoroutine("OpponentWinOutput");
-            var bullet = GameObject.FindGameObjectWithTag("Bullet");
-            Destroy(bullet);
+            OpponentWinOutputFunction();
         }
         
+    }
+
+    public void OpponentWinOutputFunction()
+    {
+        opponentsScoreIndex++;
+        //opponentsScoreText.text = opponentsScoreIndex.ToString();
+        timerCondition = !timerCondition;
+        StartCoroutine("OpponentWinOutput");
+        var bullet = GameObject.FindGameObjectWithTag("Bullet");
+        Destroy(bullet);
     }
 
     private void SpawnFirstBullet()
