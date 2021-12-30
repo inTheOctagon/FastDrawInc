@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Board
-  - TarAndFeather
+  - taf
   layers:
   - Default
   - TransparentFX

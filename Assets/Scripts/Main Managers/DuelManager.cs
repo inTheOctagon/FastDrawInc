@@ -21,7 +21,7 @@ public class DuelManager : MonoBehaviour
     [Header("Timer Variables")]
     [SerializeField] Slider timerSlider;
     public float timerValue;
-    private bool timerCondition = false;
+    public bool timerCondition = false;
 
     [Header("UI Variables")]
     [SerializeField] TextMeshProUGUI yourScoreText;
