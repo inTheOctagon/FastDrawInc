@@ -15,7 +15,7 @@ public class tafScript : MonoBehaviour
 
     private bool penaltyInterval = true;
 
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
         if(duelManager.GetComponent<DuelManager>().timerCondition && penaltyInterval)
         {
