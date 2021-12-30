@@ -1277,7 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c097b9bab9bcab4ea9663f81c02f3b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dogSpeed: 3
+  dogSpeed: 5
   duelManager: {fileID: 357749008}
 --- !u!50 &1525325814
 Rigidbody2D:
