@@ -412,9 +412,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedBulletCount: 5
   tournamentManagerObject: {fileID: 2038048342}
-  normalBullet: {fileID: 886954538256485090, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
+  normalBullet: {fileID: 2030730703631102868, guid: c7f3ed37a035e0942ab1446b2e033b18, type: 3}
   timerSlider: {fileID: 1693687458}
-  timerValue: 4
+  timerValue: 3
   timerCondition: 0
   yourScoreText: {fileID: 390622904}
   opponentsScoreText: {fileID: 1141780526}

@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Duel4 Evening.unity
     guid: 44e97e2270c07a444a4113b3136c6f5f
   - enabled: 1
+    path: Assets/Scenes/Duel5 TheMastermind.unity
+    guid: 1f32b89d90d14334da98ddf6d5aafb83
+  - enabled: 1
     path: Assets/Scenes/You are dead.unity
     guid: b079240070431a147837ed3759abf4c8
   m_configObjects: {}
