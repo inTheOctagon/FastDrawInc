@@ -14,9 +14,11 @@ public class DuelManager : MonoBehaviour
     private TournamentManager tournamentManager;
 
     [Header("Bullet Variables")]
-    [SerializeField] GameObject normalBullet;
+    [SerializeField] GameObject bulletPrefab;
     private int placeIndex = -1;
-    private bool mainSpawnCondition = true;
+    private bool mainSpawnCondition = false;
+    //Mastermind Spawn Area Setter
+    public bool MastermindSpawnCondition = false;
     
     [Header("Timer Variables")]
     [SerializeField] Slider timerSlider;
@@ -60,8 +62,22 @@ public class DuelManager : MonoBehaviour
 
         if (mainSpawnCondition) 
         {
+            if(MastermindSpawnCondition)
+            {
+                float xTransform = Random.Range(-6f, -6f);
+                float yTransform = Random.Range(-2, 1.5f);
+
+                Vector2 bulletSpawnLoc = new Vector2(xTransform, yTransform);
+
+                Instantiate(bulletPrefab, bulletSpawnLoc, Quaternion.identity);
+
+                mainSpawnCondition = !mainSpawnCondition;
+            }
+            else
+            {
+                SpawnFirstBullet();
+            }
             
-            SpawnFirstBullet(); 
         }
 
         if (timerCondition)
@@ -140,7 +156,7 @@ public class DuelManager : MonoBehaviour
 
             Vector2 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
-            Instantiate(normalBullet, bulletSpawnLoc, Quaternion.identity);
+            Instantiate(bulletPrefab, bulletSpawnLoc, Quaternion.identity);
             
             mainSpawnCondition = !mainSpawnCondition;
 
@@ -153,7 +169,7 @@ public class DuelManager : MonoBehaviour
 
             Vector2 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
-            Instantiate(normalBullet, bulletSpawnLoc, Quaternion.identity);
+            Instantiate(bulletPrefab, bulletSpawnLoc, Quaternion.identity);
             
             mainSpawnCondition = !mainSpawnCondition;
         }
@@ -166,7 +182,7 @@ public class DuelManager : MonoBehaviour
 
             Vector2 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
-            Instantiate(normalBullet, bulletSpawnLoc, Quaternion.identity);
+            Instantiate(bulletPrefab, bulletSpawnLoc, Quaternion.identity);
             
             mainSpawnCondition = !mainSpawnCondition;
         }
@@ -179,7 +195,7 @@ public class DuelManager : MonoBehaviour
 
             Vector2 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
-            Instantiate(normalBullet, bulletSpawnLoc, Quaternion.identity);
+            Instantiate(bulletPrefab, bulletSpawnLoc, Quaternion.identity);
             
             mainSpawnCondition = !mainSpawnCondition;
         }

@@ -539,7 +539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickedBulletCount: 5
   tournamentManagerObject: {fileID: 2038048342}
-  normalBullet: {fileID: 886954538256485090, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
+  bulletPrefab: {fileID: 886954538256485090, guid: be1f1b261b414ab4baf5aecc10eb8ad7, type: 3}
+  MastermindSpawnCondition: 0
   timerSlider: {fileID: 1693687458}
   timerValue: 4
   timerCondition: 0

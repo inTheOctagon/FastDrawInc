@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -778520163431533276, guid: 3b093222f0c326841808eca98a47f3ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mastermindBulletPrefab: {fileID: 2030730703631102868}
-  moveSpeed: 4
+  moveSpeed: 2
 --- !u!50 &-1233225390039590866
 Rigidbody2D:
   serializedVersion: 4
