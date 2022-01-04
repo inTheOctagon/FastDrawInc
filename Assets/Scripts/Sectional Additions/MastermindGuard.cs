@@ -10,38 +10,54 @@ public class MastermindGuard : MonoBehaviour
 
     [SerializeField] float moveDistance;
 
+    [SerializeField] bool UpDown;
     [SerializeField] bool DownUp;
     [SerializeField] bool RightLeft;
+    [SerializeField] bool LeftRight;
     [SerializeField] float moveSpeed;
 
     [SerializeField] GameObject bustedText;
 
-    float TimeInterval;
+    float TimeInterval = 0;
 
+    
     
     
     void Awake()
     {
         startPos = transform.position;
+        targetPos = startPos + new Vector3(moveDistance, 0);
+
         if (DownUp) targetPos = startPos + new Vector3(0, -moveDistance);
-        else if (RightLeft) targetPos = startPos + new Vector3(0, moveDistance);
+        else if (RightLeft) targetPos = startPos + new Vector3(moveDistance, 0);
+        else if(LeftRight) targetPos = startPos + new Vector3(-moveDistance, 0);
+        else if (UpDown) targetPos = startPos + new Vector3(0, +moveDistance);
     }
+    
 
    
     void Update()
     {
+        if(GameObject.Find("Duel Manager").GetComponent<DuelManager>().timerCondition)
+        {
+            TimeInterval += 0.3f * Time.deltaTime;
+        }
 
+        else if(GameObject.Find("Duel Manager").GetComponent<DuelManager>().timerCondition == false)
+        {
+            TimeInterval = 0;
+        }
 
         if (GameObject.Find("Duel Manager").GetComponent<DuelManager>().timerCondition)
         {
-            TimeInterval = Mathf.PingPong(Time.fixedTime * moveSpeed, 1);
-            transform.position = Vector3.Lerp(startPos, targetPos, TimeInterval);
+            
+            transform.position = Vector3.Lerp(startPos, targetPos, Mathf.PingPong(TimeInterval * moveSpeed, 1));
         }
 
         else
         {
             transform.position = Vector3.MoveTowards(transform.position, startPos, moveSpeed * Time.deltaTime);
-            TimeInterval = 0;
+            
         }
 
 
