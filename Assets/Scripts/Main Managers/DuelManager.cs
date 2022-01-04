@@ -65,7 +65,7 @@ public class DuelManager : MonoBehaviour
             if(MastermindSpawnCondition)
             {
                 float xTransform = Random.Range(-6f, -6f);
-                float yTransform = Random.Range(-2, 1.5f);
+                float yTransform = Random.Range(-2, 0f);
 
                 Vector2 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
