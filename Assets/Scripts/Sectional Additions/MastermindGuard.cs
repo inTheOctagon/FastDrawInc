@@ -5,8 +5,8 @@ using TMPro;
 
 public class MastermindGuard : MonoBehaviour
 {
-    Vector2 startPos;
-    Vector2 targetPos;
+    Vector3 startPos;
+    Vector3 targetPos;
 
     [SerializeField] float moveDistance;
 
@@ -16,21 +16,53 @@ public class MastermindGuard : MonoBehaviour
 
     [SerializeField] GameObject bustedText;
 
+    float TimeInterval;
+
     
     
-    void Start()
+    void Awake()
     {
         startPos = transform.position;
-        if (DownUp) targetPos = startPos + new Vector2(0, -moveDistance);
-        else if (RightLeft) targetPos = startPos + new Vector2(0, moveDistance);
+        if (DownUp) targetPos = startPos + new Vector3(0, -moveDistance);
+        else if (RightLeft) targetPos = startPos + new Vector3(0, moveDistance);
     }
 
    
     void Update()
     {
-        if(GameObject.Find("Duel Manager").GetComponent<DuelManager>().timerCondition)
-        transform.position = Vector3.Lerp(startPos, targetPos, Mathf.PingPong(Time.time * moveSpeed, 1));
-        else transform.position = Vector3.Lerp(transform.position, startPos, moveSpeed * Time.deltaTime);
+
+
+        if (GameObject.Find("Duel Manager").GetComponent<DuelManager>().timerCondition)
+        {
+            TimeInterval = Mathf.PingPong(Time.fixedTime * moveSpeed, 1);
+            transform.position = Vector3.Lerp(startPos, targetPos, TimeInterval);
+        }
+
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, startPos, moveSpeed * Time.deltaTime);
+            TimeInterval = 0;
+        }
+
+
+
+        //animation part
+        if (GameObject.Find("Duel Manager").GetComponent<DuelManager>().timerCondition)
+        {
+
+            gameObject.GetComponent<Animator>().SetBool("Walk", true);
+
+
+        }
+
+        else if (transform.position == startPos /*GameObject.Find("Duel Manager").GetComponent<DuelManager>().timerCondition == false*/)
+        {
+            
+            gameObject.GetComponent<Animator>().SetBool("Walk", false);
+            
+        }
+        else return;
+
     }
 
 
