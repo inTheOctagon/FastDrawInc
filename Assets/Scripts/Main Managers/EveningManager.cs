@@ -5,7 +5,8 @@ using UnityEngine;
 public class EveningManager : MonoBehaviour
 {
 
- 
+    [Header("The Evening of The Duel #1")]
+    [SerializeField] GameObject theEveningText;
     [Header("Main Options Panel Variables")]
     [SerializeField] GameObject optionsFirstBit;
     [SerializeField] GameObject optionsSecondBit;
@@ -78,7 +79,11 @@ public class EveningManager : MonoBehaviour
 
     IEnumerator OptionsPanelSetter()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        theEveningText.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(3f);
+        theEveningText.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(3f);
         optionsFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
         mainPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
     }

@@ -13,6 +13,8 @@ public class DuelManager : MonoBehaviour
     [SerializeField] GameObject tournamentManagerObject;
     private TournamentManager tournamentManager;
 
+    [SerializeField] GameObject panelFadeIn;
+
     [Header("Bullet Variables")]
     [SerializeField] GameObject bulletPrefab;
     private int placeIndex = -1;
@@ -286,6 +288,8 @@ public class DuelManager : MonoBehaviour
 
         else if (duel4Con && yourScoreIndex == 6)
         {
+            panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
+            yield return new WaitForSeconds(2f);
             tournamentManager.nextScene();
             
         }
@@ -297,6 +301,8 @@ public class DuelManager : MonoBehaviour
         }
         else if(!duel4Con)
         {
+            panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
+            yield return new WaitForSeconds(2f);
             tournamentManager.nextScene();
         }
         
@@ -324,6 +330,8 @@ public class DuelManager : MonoBehaviour
         }
         else
         {
+            panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
+            yield return new WaitForSeconds(2f);
             tournamentManager.youareDeadScene();
         }
         
