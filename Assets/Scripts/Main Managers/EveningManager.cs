@@ -11,7 +11,7 @@ public class EveningManager : MonoBehaviour
     [SerializeField] GameObject optionsSecondBit;
     bool mainSecondBitCon = true;
     bool mainOptionsCon = false;
-    [SerializeField] GameObject pressAnyKeyText;
+    [SerializeField] GameObject mainPressAnyKeyText;
     [SerializeField] GameObject buttonOne;
     [SerializeField] GameObject buttonTwo;
 
@@ -20,16 +20,20 @@ public class EveningManager : MonoBehaviour
     bool pathOneSecondBitCon = false;
     [SerializeField] GameObject pathOneFirstBit;
     [SerializeField] GameObject pathOneSecondBit;
+    [SerializeField] GameObject pathOnePressAnyKeyText;
     // optionTwoPanel
     [SerializeField] GameObject optionTwoPanel;
     bool pathTwoSecondBitCon = false;
     [SerializeField] GameObject pathTwoFirstBit;
     [SerializeField] GameObject pathTwoSecondBit;
+    [SerializeField] GameObject pathTwoPressAnyKeyText;
 
     bool nextScene = false;
 
     [Header("Tournament Manager")]
     [SerializeField] GameObject tournamentManager;
+    [Header("Value Manager")]
+    [SerializeField] GameObject valueManager;
 
     private void Awake()
     {
@@ -46,7 +50,7 @@ public class EveningManager : MonoBehaviour
         }
         else if (Input.anyKeyDown && !mainSecondBitCon && mainOptionsCon)
         {
-            pressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
+            mainPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
 
             buttonOne.GetComponent<Animator>().SetTrigger("FadeIn");
             buttonTwo.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -76,7 +80,7 @@ public class EveningManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         optionsFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
-        pressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        mainPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
     }
 
     public void eveningOneOptionOne()
@@ -84,6 +88,9 @@ public class EveningManager : MonoBehaviour
         optionOnePanel.SetActive(true);
         pathOneSecondBitCon = true;
         pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
+        pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        ValueManager.newBulletSize = ValueManager.newBulletSize - ValueManager.newBulletSize / 10;
+
     }
 
     public void eveningOneoptionTwo()
@@ -91,6 +98,8 @@ public class EveningManager : MonoBehaviour
         optionTwoPanel.SetActive(true);
         pathTwoSecondBitCon = true;
         pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
+        pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        ValueManager.newBulletSize = ValueManager.newBulletSize - ValueManager.newBulletSize / 10;
     }
    
 

@@ -28,6 +28,10 @@ public class MastermindGuard : MonoBehaviour
         startPos = transform.position;
         targetPos = startPos + new Vector3(moveDistance, 0);
 
+        //bullet size
+
+        this.gameObject.transform.localScale = new Vector2(ValueManager.newBulletSize, ValueManager.newBulletSize);
+
         if (DownUp) targetPos = startPos + new Vector3(0, -moveDistance);
         else if (RightLeft) targetPos = startPos + new Vector3(moveDistance, 0);
         else if(LeftRight) targetPos = startPos + new Vector3(-moveDistance, 0);
