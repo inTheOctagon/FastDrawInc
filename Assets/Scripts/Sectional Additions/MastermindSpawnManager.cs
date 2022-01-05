@@ -10,6 +10,7 @@ public class MastermindSpawnManager : MonoBehaviour
     {
         duelManagerScript = GameObject.Find("Duel Manager").GetComponent<DuelManager>();
         duelManagerScript.MastermindSpawnCondition = true;
+        duelManagerScript.duel5Con = true;
     }
 
     // Update is called once per frame

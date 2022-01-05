@@ -34,10 +34,14 @@ public class DuelManager : MonoBehaviour
     private bool timerFiller = false;
     RaycastHit2D boardHit;
     [SerializeField] GameObject timerPenaltyText;
-    
     //UI Animation
     [SerializeField] GameObject scorePanel;
     private Animator scoreAnimator;
+
+    [Header("Sectional Additions")]
+
+    public bool duel4Con = false;
+    public bool duel5Con = false;
 
 
     private void Awake()
@@ -250,19 +254,52 @@ public class DuelManager : MonoBehaviour
         yield return new WaitForSeconds(2.4f);
         scoreAnimator.SetBool("UIScoresAnim", false);
         yield return new WaitForSeconds(1);
-        if (yourScoreIndex != 3)
+        
+        if(duel5Con && yourScoreIndex == 2 && (opponentsScoreIndex == 0 || opponentsScoreIndex == 1))
+        {
+            timerCondition = false;
+            yield return new WaitForSeconds(0.5f);
+            scoreAnimator.SetBool("UIScoresAnim", true);
+            yield return new WaitForSeconds(1.8f);
+            yourScoreText.text = opponentsScoreIndex.ToString();
+            opponentsScoreText.text = yourScoreIndex.ToString();
+            yield return new WaitForSeconds(2.4f);
+            scoreAnimator.SetBool("UIScoresAnim", false);
+            yield return new WaitForSeconds(1);
+            timerFiller = true;
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine("StartCountdown");
+            duel5Con = false;
+            var tempOppIndex = opponentsScoreIndex;
+            var tempYourIndex = yourScoreIndex;
+            yourScoreIndex = tempOppIndex;
+            opponentsScoreIndex = tempYourIndex;
+        }
+
+        else if(duel4Con && yourScoreIndex == 3)
+        {
+            // startCountdown we textle anlat
+            timerFiller = true;
+            yield return new WaitForSeconds(1.5f);
+            StartCoroutine("StartCountdown");
+        }
+
+        else if (duel4Con && yourScoreIndex == 6)
+        {
+            tournamentManager.nextScene();
+            
+        }
+        else if ( yourScoreIndex != 3)
         {
             timerFiller = true;
             yield return new WaitForSeconds(1.5f);
-        }
-        if ( yourScoreIndex != 3)
-        {
             StartCoroutine("StartCountdown");
         }
-        else
+        else if(!duel4Con)
         {
             tournamentManager.nextScene();
         }
+        
 
 
 
@@ -278,14 +315,11 @@ public class DuelManager : MonoBehaviour
         yield return new WaitForSeconds(2.4f);
         scoreAnimator.SetBool("UIScoresAnim", false);
         yield return new WaitForSeconds(1);
-        if (opponentsScoreIndex != 3)
-        {
-            timerFiller = true;
-            yield return new WaitForSeconds(1.5f);    
-        }
         
         if (opponentsScoreIndex != 3)
         {
+            timerFiller = true;
+            yield return new WaitForSeconds(1.5f);
             StartCoroutine("StartCountdown");
         }
         else

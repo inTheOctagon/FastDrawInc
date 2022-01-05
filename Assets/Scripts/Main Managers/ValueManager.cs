@@ -9,7 +9,7 @@ public class ValueManager : MonoBehaviour
     public static float newBulletSize = 1;
     //timer value
     
-    public static float newTimerValue = 4f;
+    public static float newTimerValue = 5f;
 
     
 

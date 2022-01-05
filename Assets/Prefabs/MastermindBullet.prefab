@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mastermindBulletPrefab: {fileID: 2030730703631102868}
-  moveSpeed: 3
+  moveSpeed: 2.5
 --- !u!50 &-1233225390039590866
 Rigidbody2D:
   serializedVersion: 4

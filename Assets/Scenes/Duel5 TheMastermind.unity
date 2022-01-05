@@ -422,6 +422,8 @@ MonoBehaviour:
   countdownText: {fileID: 1282166256}
   timerPenaltyText: {fileID: 1744860080}
   scorePanel: {fileID: 399456008}
+  duel4Con: 0
+  duel5Con: 0
 --- !u!4 &357749010
 Transform:
   m_ObjectHideFlags: 0
@@ -1197,7 +1199,7 @@ PrefabInstance:
       objectReference: {fileID: 1637611540}
     - target: {fileID: 7714214868762048311, guid: c352aade932cd904c836a50cfcbe5e55, type: 3}
       propertyPath: moveDistance
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7714214868762048314, guid: c352aade932cd904c836a50cfcbe5e55, type: 3}
       propertyPath: m_Name
@@ -2341,7 +2343,7 @@ PrefabInstance:
       objectReference: {fileID: 1637611540}
     - target: {fileID: 7714214868762048311, guid: c352aade932cd904c836a50cfcbe5e55, type: 3}
       propertyPath: moveDistance
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7714214868762048314, guid: c352aade932cd904c836a50cfcbe5e55, type: 3}
       propertyPath: m_Name
