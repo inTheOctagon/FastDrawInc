@@ -7,6 +7,7 @@ public class EveningManager : MonoBehaviour
 
     [Header("The Evening of The Duel #1")]
     [SerializeField] GameObject theEveningText;
+   
     [Header("Main Options Panel Variables")]
     [SerializeField] GameObject optionsFirstBit;
     [SerializeField] GameObject optionsSecondBit;
@@ -22,19 +23,19 @@ public class EveningManager : MonoBehaviour
     [SerializeField] GameObject pathOneFirstBit;
     [SerializeField] GameObject pathOneSecondBit;
     [SerializeField] GameObject pathOnePressAnyKeyText;
+    bool pathOneExit = false;
     // optionTwoPanel
     [SerializeField] GameObject optionTwoPanel;
     bool pathTwoSecondBitCon = false;
     [SerializeField] GameObject pathTwoFirstBit;
     [SerializeField] GameObject pathTwoSecondBit;
     [SerializeField] GameObject pathTwoPressAnyKeyText;
-
-    bool nextScene = false;
+    bool pathTwoExit = false;
 
     [Header("Tournament Manager")]
     [SerializeField] GameObject tournamentManager;
-    [Header("Value Manager")]
-    [SerializeField] GameObject valueManager;
+    
+    
 
     private void Awake()
     {
@@ -53,6 +54,8 @@ public class EveningManager : MonoBehaviour
         {
             mainPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
 
+            buttonOne.GetComponent<Animator>().speed = 1;
+            buttonTwo.GetComponent<Animator>().speed = 1;
             buttonOne.GetComponent<Animator>().SetTrigger("FadeIn");
             buttonTwo.GetComponent<Animator>().SetTrigger("FadeIn");
 
@@ -62,18 +65,23 @@ public class EveningManager : MonoBehaviour
         {
             pathOneSecondBitCon = false;
             pathOneSecondBit.GetComponent<Animator>().SetTrigger("FadeIn");
-            nextScene = true;
+            pathOneExit = true;
         }
         else if(Input.anyKeyDown && pathTwoSecondBitCon)
         {
             pathTwoSecondBitCon = false;
             pathTwoSecondBit.GetComponent<Animator>().SetTrigger("FadeIn");
-            nextScene = true;
+            pathTwoExit = true;
         }
         
-        else if(Input.anyKeyDown && nextScene)
+        else if(Input.anyKeyDown && pathOneExit)
         {
-            tournamentManager.GetComponent<TournamentManager>().nextScene();
+            StartCoroutine("pathOneExitNumerator");
+            
+        }
+        else if(Input.anyKeyDown && pathTwoExit)
+        {
+            StartCoroutine("pathTwoExitNumerator");
         }
     }
 
@@ -107,5 +115,22 @@ public class EveningManager : MonoBehaviour
         ValueManager.newBulletSize = ValueManager.newBulletSize - ValueManager.newBulletSize / 10;
     }
    
+    IEnumerator pathOneExitNumerator()
+    {
+        pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeOut");
+        pathOneSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
+        pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(3);
+        tournamentManager.GetComponent<TournamentManager>().nextScene();
+    }
+
+    IEnumerator pathTwoExitNumerator()
+    {
+        pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeOut");
+        pathTwoSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
+        pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(3);
+        tournamentManager.GetComponent<TournamentManager>().nextScene();
+    }
 
 }
