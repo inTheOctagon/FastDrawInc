@@ -12,7 +12,6 @@ public class DuelManager : MonoBehaviour
     private bool bulletCountCondition = false;
     [SerializeField] GameObject tournamentManagerObject;
     private TournamentManager tournamentManager;
-
     [SerializeField] GameObject panelFadeIn;
 
     [Header("Bullet Variables")]
@@ -28,6 +27,8 @@ public class DuelManager : MonoBehaviour
     public bool timerCondition = false;
 
     [Header("UI Variables")]
+    [SerializeField] GameObject tipPanel;
+    private bool tipCon = false;
     [SerializeField] TextMeshProUGUI yourScoreText;
     private int yourScoreIndex = 0;
     [SerializeField] TextMeshProUGUI opponentsScoreText;
@@ -54,7 +55,7 @@ public class DuelManager : MonoBehaviour
 
         scoreAnimator = scorePanel.GetComponent<Animator>();
 
-        StartCoroutine("StartCountdown");
+        StartCoroutine("StartWithTips");
 
         // timer values are set
         timerValue = ValueManager.newTimerValue;
@@ -65,6 +66,18 @@ public class DuelManager : MonoBehaviour
 
     private void Update()
     {
+        if (tipCon)
+        {
+            if (Input.anyKeyDown)
+            {
+                tipPanel.GetComponent<Animator>().SetTrigger("FadeOut");
+                StartCoroutine("StartCountdown");
+                tipCon = false;
+            }
+            
+
+        }
+        
 
         if (mainSpawnCondition) 
         {
@@ -217,13 +230,25 @@ public class DuelManager : MonoBehaviour
         timerPenaltyText.SetActive(false);
     }
 
+    IEnumerator StartWithTips()
+    {
+
+        yield return new WaitForSeconds(3);
+        tipCon = true;
+        tipPanel.GetComponent<Animator>().SetTrigger("FadeIn");
+
+    }
+
     IEnumerator StartCountdown()
     {
+        
+
+    
         clickedBulletCount = 5;
 
         timerFiller = false;
         
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         countdownText.enabled = true;
         countdownText.text = 3.ToString();
         yield return new WaitForSeconds(1);
