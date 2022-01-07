@@ -28,6 +28,8 @@ public class DuelManager : MonoBehaviour
 
     [Header("UI Variables")]
     [SerializeField] GameObject tipPanel;
+    [SerializeField] GameObject yourNameText;
+    [SerializeField] GameObject opponentsNameText;
     private bool tipCon = false;
     [SerializeField] TextMeshProUGUI yourScoreText;
     private int yourScoreIndex = 0;
@@ -71,6 +73,8 @@ public class DuelManager : MonoBehaviour
             if (Input.anyKeyDown)
             {
                 tipPanel.GetComponent<Animator>().SetTrigger("FadeOut");
+                opponentsNameText.GetComponent<Animator>().SetTrigger("FadeOut");
+                yourNameText.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine("StartCountdown");
                 tipCon = false;
             }
@@ -233,6 +237,8 @@ public class DuelManager : MonoBehaviour
     IEnumerator StartWithTheSetupAndTips()
     {
         scoreAnimator.SetTrigger("FadeIn");
+        opponentsNameText.GetComponent<Animator>().SetTrigger("FadeIn");
+        yourNameText.GetComponent<Animator>().SetTrigger("FadeIn");
         // names here fade in 
         yield return new WaitForSeconds(2);
         tipCon = true;
