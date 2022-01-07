@@ -55,7 +55,7 @@ public class DuelManager : MonoBehaviour
 
         scoreAnimator = scorePanel.GetComponent<Animator>();
 
-        StartCoroutine("StartWithTips");
+        StartCoroutine("StartWithTheSetupAndTips");
 
         // timer values are set
         timerValue = ValueManager.newTimerValue;
@@ -230,10 +230,11 @@ public class DuelManager : MonoBehaviour
         timerPenaltyText.SetActive(false);
     }
 
-    IEnumerator StartWithTips()
+    IEnumerator StartWithTheSetupAndTips()
     {
-
-        yield return new WaitForSeconds(3);
+        scoreAnimator.SetTrigger("FadeIn");
+        // names here fade in 
+        yield return new WaitForSeconds(2);
         tipCon = true;
         tipPanel.GetComponent<Animator>().SetTrigger("FadeIn");
 
