@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Duel 4 & 5/Duel4 TheStrongOne.unity
     guid: c751d6a3de5f8c54495eb6ce81533151
   - enabled: 1
+    path: Assets/Scenes/Duel 4 & 5/4 to 5.unity
+    guid: a5c26b86220bd804a8c9f86dc6055b0a
+  - enabled: 1
     path: Assets/Scenes/Duel 4 & 5/Duel5 TheMastermind.unity
     guid: 1f32b89d90d14334da98ddf6d5aafb83
   - enabled: 1

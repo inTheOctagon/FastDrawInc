@@ -50,22 +50,30 @@ public class DuelManager : MonoBehaviour
     public bool duel4Con = false;
     public bool duel5Con = false;
     public bool theStrongMan = false;
+    public bool theMastermindStart = false;
 
+    [SerializeField] GameObject mastermindPanel;
+    
 
     private void Awake()
     {
+        
         tournamentManager = tournamentManagerObject.GetComponent<TournamentManager>();
 
         // UI text variables
 
         scoreAnimator = scorePanel.GetComponent<Animator>();
 
-        StartCoroutine("StartWithTheSetupAndTips");
+        if(!theMastermindStart) StartCoroutine("StartWithTheSetupAndTips");
 
         // timer values are set
         timerValue = ValueManager.newTimerValue;
         timerSlider.maxValue = timerValue;
         timerSlider.value = timerValue;
+
+        //the mastermind start UI transition
+
+        if (theMastermindStart) StartCoroutine("theMastermindSetup");
 
     }
 
@@ -386,6 +394,15 @@ public class DuelManager : MonoBehaviour
             tournamentManager.youareDeadScene();
         }
         
+
+    }
+
+    IEnumerator theMastermindSetup()
+    {
+        yield return new WaitForSeconds(0.5f);
+        mastermindPanel.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1f);
+        StartCoroutine("StartWithTheSetupAndTips");
 
     }
 
