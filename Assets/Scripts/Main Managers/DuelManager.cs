@@ -25,9 +25,11 @@ public class DuelManager : MonoBehaviour
     [SerializeField] Slider timerSlider;
     public float timerValue;
     public bool timerCondition = false;
+    RaycastHit2D boardHit;
 
     [Header("UI Variables")]
     [SerializeField] GameObject tipPanel;
+    private bool startTipCon = false;
     [SerializeField] GameObject yourNameText;
     [SerializeField] GameObject opponentsNameText;
     private bool tipCon = false;
@@ -37,16 +39,17 @@ public class DuelManager : MonoBehaviour
     private int opponentsScoreIndex = 0;
     [SerializeField] TextMeshProUGUI countdownText;
     private bool timerFiller = false;
-    RaycastHit2D boardHit;
-    [SerializeField] GameObject timerPenaltyText;
-    //UI Animation
     [SerializeField] GameObject scorePanel;
     private Animator scoreAnimator;
+    [SerializeField] GameObject timerPenaltyText;
 
     [Header("Sectional Additions")]
 
+    [SerializeField] GameObject theStrongOneText;
+
     public bool duel4Con = false;
     public bool duel5Con = false;
+    public bool theStrongMan = false;
 
 
     private void Awake()
@@ -68,19 +71,7 @@ public class DuelManager : MonoBehaviour
 
     private void Update()
     {
-        if (tipCon)
-        {
-            if (Input.anyKeyDown)
-            {
-                tipPanel.GetComponent<Animator>().SetTrigger("FadeOut");
-                opponentsNameText.GetComponent<Animator>().SetTrigger("FadeOut");
-                yourNameText.GetComponent<Animator>().SetTrigger("FadeOut");
-                StartCoroutine("StartCountdown");
-                tipCon = false;
-            }
-            
-
-        }
+        
         
 
         if (mainSpawnCondition) 
@@ -134,8 +125,34 @@ public class DuelManager : MonoBehaviour
                 
             }
         }
-        
-        
+
+
+        if (tipCon)
+        {
+            if (Input.anyKeyDown)
+            {
+                tipPanel.GetComponent<Animator>().SetTrigger("FadeOut");
+                opponentsNameText.GetComponent<Animator>().SetTrigger("FadeOut");
+                yourNameText.GetComponent<Animator>().SetTrigger("FadeOut");
+                StartCoroutine("StartCountdown");
+                startTipCon = false;
+                tipCon = false;
+            }
+
+
+        }
+        else if (theStrongMan)
+        {
+            if (Input.anyKeyDown)
+            {
+                theStrongOneText.GetComponent<Animator>().SetTrigger("FadeOut");
+                StartCoroutine("StartCountdown");
+                theStrongMan = false;
+            }
+
+        }
+        else return;
+
 
     }
 
@@ -313,9 +330,11 @@ public class DuelManager : MonoBehaviour
         else if(duel4Con && yourScoreIndex == 3)
         {
             // startCountdown we textle anlat
+            theStrongOneText.GetComponent<Animator>().SetTrigger("FadeIn");
             timerFiller = true;
             yield return new WaitForSeconds(1.5f);
-            StartCoroutine("StartCountdown");
+            theStrongMan = true;
+
         }
 
         else if (duel4Con && yourScoreIndex == 6)
