@@ -28,9 +28,9 @@ public class MastermindBullet : MonoBehaviour
         duelManagerScript = GameObject.Find("Duel Manager").GetComponent<DuelManager>();
 
         bulletSpawnLoc.x = Random.Range(-6, 6);
-        bulletSpawnLoc.y = Random.Range(-2, 0);
+        bulletSpawnLoc.y = Random.Range(-1, 0);
 
-        targetPos = new Vector2(0, 5);
+        targetPos = new Vector2(0, 4.5f);
 
     }
 

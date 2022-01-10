@@ -47,6 +47,9 @@ public class DuelManager : MonoBehaviour
 
     [SerializeField] GameObject theStrongOneText;
 
+    [SerializeField] GameObject howDidHeDoThat;
+    private bool theMastermind = false;
+
     public bool duel4Con = false;
     public bool duel5Con = false;
     public bool theStrongMan = false;
@@ -86,8 +89,8 @@ public class DuelManager : MonoBehaviour
         {
             if(MastermindSpawnCondition)
             {
-                float xTransform = Random.Range(-6f, -6f);
-                float yTransform = Random.Range(-2, 0f);
+                float xTransform = Random.Range(-6f, 6f);
+                float yTransform = Random.Range(-1, 0f);
 
                 Vector2 bulletSpawnLoc = new Vector2(xTransform, yTransform);
 
@@ -98,6 +101,7 @@ public class DuelManager : MonoBehaviour
             else
             {
                 SpawnFirstBullet();
+                mainSpawnCondition = false;
             }
             
         }
@@ -158,6 +162,16 @@ public class DuelManager : MonoBehaviour
                 theStrongMan = false;
             }
 
+        }
+        else if(theMastermind)
+        {
+            if(Input.anyKeyDown)
+            {
+                howDidHeDoThat.GetComponent<Animator>().SetTrigger("FadeOut");
+                StartCoroutine("theMastermindTipPanel");
+                theMastermind = false;
+            }
+            
         }
         else return;
 
@@ -324,10 +338,11 @@ public class DuelManager : MonoBehaviour
             opponentsScoreText.text = yourScoreIndex.ToString();
             yield return new WaitForSeconds(2.4f);
             scoreAnimator.SetBool("UIScoresAnim", false);
+            howDidHeDoThat.GetComponent<Animator>().SetTrigger("FadeIn");
             yield return new WaitForSeconds(1);
             timerFiller = true;
             yield return new WaitForSeconds(1.5f);
-            StartCoroutine("StartCountdown");
+            theMastermind = true;
             duel5Con = false;
             var tempOppIndex = opponentsScoreIndex;
             var tempYourIndex = yourScoreIndex;
@@ -405,5 +420,10 @@ public class DuelManager : MonoBehaviour
         StartCoroutine("StartWithTheSetupAndTips");
 
     }
-
+    
+    IEnumerator theMastermindTipPanel()
+    {
+        yield return new WaitForSeconds(1);
+        StartCoroutine("StartCountdown");
+    }
 }
