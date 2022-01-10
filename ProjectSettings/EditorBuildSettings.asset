@@ -31,7 +31,7 @@ EditorBuildSettings:
     guid: 472e80fc9f8746c40afe5eadaf43ff88
   - enabled: 1
     path: Assets/Scenes/Duel 3/Duel3 Evening.unity
-    guid: 288b9187f0483094195b58294fc69f44
+    guid: d9ae2c11c424ee14a9026c9e4e4d788a
   - enabled: 1
     path: Assets/Scenes/Duel 4 & 5/Clock Tower 4.unity
     guid: 027d725c32f715c4cb90679eea38ae7b
