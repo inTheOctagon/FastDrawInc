@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TAFManager : MonoBehaviour
 {
-    
-    //void Start()
-    //{
-    //    ValueManager.newTimerValue = 3.75f;
-    //}
 
-    
+    void Start()
+    {
+        ValueManager.newTimerValue = 3.9f;
+    }
+
+
 }
