@@ -191,6 +191,7 @@ public class DuelManager : MonoBehaviour
     private void Timer()
     {
         timerSlider.value -= 1.0f * Time.deltaTime;
+        Debug.Log(timerSlider.value);
         
         if (timerSlider.value == 0)
         {
@@ -278,6 +279,8 @@ public class DuelManager : MonoBehaviour
         scoreAnimator.SetTrigger("FadeIn");
         opponentsNameText.GetComponent<Animator>().SetTrigger("FadeIn");
         yourNameText.GetComponent<Animator>().SetTrigger("FadeIn");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         // names here fade in 
         yield return new WaitForSeconds(2);
         tipCon = true;
@@ -376,7 +379,10 @@ public class DuelManager : MonoBehaviour
         else if(!duel4Con)
         {
             panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(1f);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            yield return new WaitForSeconds(3f);
             tournamentManager.nextScene();
         }
         

@@ -11,7 +11,7 @@ public class EveningManager : MonoBehaviour
     [Header("Main Options Panel Variables")]
     [SerializeField] GameObject optionsFirstBit;
     [SerializeField] GameObject optionsSecondBit;
-    bool mainSecondBitCon = true;
+    bool mainSecondBitCon = false;
     bool mainOptionsCon = false;
     [SerializeField] GameObject mainPressAnyKeyText;
     [SerializeField] GameObject buttonOne;
@@ -53,7 +53,10 @@ public class EveningManager : MonoBehaviour
         else if (Input.anyKeyDown && !mainSecondBitCon && mainOptionsCon)
         {
             mainPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
-
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            buttonOne.SetActive(true);
+            buttonTwo.SetActive(true);
             buttonOne.GetComponent<Animator>().speed = 1;
             buttonTwo.GetComponent<Animator>().speed = 1;
             buttonOne.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -77,11 +80,15 @@ public class EveningManager : MonoBehaviour
         else if(Input.anyKeyDown && pathOneExit)
         {
             StartCoroutine("pathOneExitNumerator");
-            
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
         }
         else if(Input.anyKeyDown && pathTwoExit)
         {
             StartCoroutine("pathTwoExitNumerator");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
@@ -94,6 +101,8 @@ public class EveningManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         optionsFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
         mainPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        mainSecondBitCon = true;
     }
 
     // evening one options

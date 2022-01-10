@@ -345,7 +345,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 45.813778}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &168801025
 BoxCollider2D:
@@ -448,6 +448,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180177643}
   m_CullTransparentMesh: 1
+--- !u!1 &210052767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 210052769}
+  - component: {fileID: 210052768}
+  m_Layer: 0
+  m_Name: The Ordinary Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &210052768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210052767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ae6898864f7354da0edffb0da81b79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &210052769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210052767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 265.126, y: 219.38397, z: -5.546496}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &233097098
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +519,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &306285964 stripped
 GameObject:
@@ -531,10 +574,15 @@ MonoBehaviour:
   yourScoreText: {fileID: 390622904}
   opponentsScoreText: {fileID: 1141780526}
   countdownText: {fileID: 1282166256}
-  timerPenaltyText: {fileID: 1744860080}
   scorePanel: {fileID: 399456008}
+  timerPenaltyText: {fileID: 1744860080}
+  theStrongOneText: {fileID: 0}
+  howDidHeDoThat: {fileID: 0}
   duel4Con: 0
   duel5Con: 0
+  theStrongMan: 0
+  theMastermindStart: 0
+  mastermindPanel: {fileID: 0}
 --- !u!4 &357749010
 Transform:
   m_ObjectHideFlags: 0
@@ -1468,7 +1516,7 @@ RectTransform:
   - {fileID: 1295085607}
   - {fileID: 306285965}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1766,7 +1814,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1938651346
 GameObject:
@@ -1923,7 +1971,7 @@ Transform:
   m_LocalScale: {x: 15.98044, y: 2.4838126, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1223282374541787333
 PrefabInstance:
