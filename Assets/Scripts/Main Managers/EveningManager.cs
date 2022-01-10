@@ -147,6 +147,28 @@ public class EveningManager : MonoBehaviour
         
     }
 
+    // evening three options
+
+    public void eveningThreeOptionOne()
+    {
+        optionOnePanel.SetActive(true);
+        pathOneSecondBitCon = true;
+        pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
+        pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        
+
+    }
+
+    public void eveningThreeoptionTwo()
+    {
+        optionTwoPanel.SetActive(true);
+        pathTwoSecondBitCon = true;
+        pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
+        pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+
+    }
+
+
     IEnumerator pathOneExitNumerator()
     {
         pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeOut");
