@@ -96,6 +96,8 @@ public class EveningManager : MonoBehaviour
         mainPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
     }
 
+    // evening one options
+
     public void eveningOneOptionOne()
     {
         optionOnePanel.SetActive(true);
@@ -114,7 +116,28 @@ public class EveningManager : MonoBehaviour
         pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
         ValueManager.newBulletSize = ValueManager.newBulletSize - ValueManager.newBulletSize / 10;
     }
-   
+
+    // evening two options
+
+    public void eveningTwoOptionOne()
+    {
+        optionOnePanel.SetActive(true);
+        pathOneSecondBitCon = true;
+        pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
+        pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        ValueManager.newTimerValue = ValueManager.newTimerValue * 0.1f + ValueManager.newTimerValue;
+
+    }
+
+    public void eveningTwooptionTwo()
+    {
+        optionTwoPanel.SetActive(true);
+        pathTwoSecondBitCon = true;
+        pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
+        pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        
+    }
+
     IEnumerator pathOneExitNumerator()
     {
         pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeOut");
