@@ -369,10 +369,21 @@ public class DuelManager : MonoBehaviour
 
         else if (duel4Con && yourScoreIndex == 6)
         {
-            panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
+            you.GetComponent<Animator>().SetTrigger("Shoot");
+            //sfx
+            yield return new WaitForSeconds(1f);
+            him.GetComponent<Animator>().SetTrigger("Die");
+            //sfx
             yield return new WaitForSeconds(4f);
+            panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
+            yield return new WaitForSeconds(1f);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            yield return new WaitForSeconds(3f);
             tournamentManager.nextScene();
-            
+
+
+
         }
         else if ( yourScoreIndex != 3)
         {
@@ -382,6 +393,13 @@ public class DuelManager : MonoBehaviour
         }
         else if(!duel4Con)
         {
+            you.GetComponent<Animator>().SetTrigger("Shoot");
+            //sfx
+            yield return new WaitForSeconds(1f);
+            him.GetComponent<Animator>().SetTrigger("Die");
+            //sfx
+            yield return new WaitForSeconds(4f);
+
             panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
             yield return new WaitForSeconds(1f);
             Cursor.lockState = CursorLockMode.Locked;
@@ -414,11 +432,17 @@ public class DuelManager : MonoBehaviour
         }
         else
         {
+            him.GetComponent<Animator>().SetTrigger("Shoot");
+            //sfx
+            yield return new WaitForSeconds(1f);
             you.GetComponent<Animator>().SetTrigger("Die");
-            //sfxs
+            //sfx
             yield return new WaitForSeconds(4f);
             panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(1f);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            yield return new WaitForSeconds(3f);
             tournamentManager.youareDeadScene();
         }
         
