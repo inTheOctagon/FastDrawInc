@@ -14,6 +14,10 @@ public class DuelManager : MonoBehaviour
     private TournamentManager tournamentManager;
     [SerializeField] GameObject panelFadeIn;
 
+    [Header("Character Variables")]
+    [SerializeField] GameObject you;
+    [SerializeField] GameObject him;
+
     [Header("Bullet Variables")]
     [SerializeField] GameObject bulletPrefab;
     private int placeIndex = -1;
@@ -410,6 +414,9 @@ public class DuelManager : MonoBehaviour
         }
         else
         {
+            you.GetComponent<Animator>().SetTrigger("Die");
+            //sfxs
+            yield return new WaitForSeconds(4f);
             panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
             yield return new WaitForSeconds(4f);
             tournamentManager.youareDeadScene();
