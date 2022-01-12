@@ -62,7 +62,7 @@ public class DuelManager : MonoBehaviour
     [SerializeField] GameObject mastermindPanel;
     
 
-    private void Awake()
+    private void Start()
     {
         
         tournamentManager = tournamentManagerObject.GetComponent<TournamentManager>();
@@ -75,6 +75,7 @@ public class DuelManager : MonoBehaviour
 
         // timer values are set
         timerValue = ValueManager.newTimerValue;
+        if(duel4Con) timerValue = ValueManager.newTimerValue + 0.9f;
         timerSlider.maxValue = timerValue;
         timerSlider.value = timerValue;
 
@@ -359,20 +360,26 @@ public class DuelManager : MonoBehaviour
 
         else if(duel4Con && yourScoreIndex == 3)
         {
-            // startCountdown we textle anlat
+            you.GetComponent<Animator>().SetTrigger("Shoot");
+            yield return new WaitForSeconds(1f);
+            him.GetComponent<Animator>().SetTrigger("Die1");
+            yield return new WaitForSeconds(2.5f);
+            him.GetComponent<Animator>().SetTrigger("STOP");
+            yield return new WaitForSeconds(2.5f);
             theStrongOneText.GetComponent<Animator>().SetTrigger("FadeIn");
             timerFiller = true;
             yield return new WaitForSeconds(1.5f);
             theStrongMan = true;
+            
 
         }
 
         else if (duel4Con && yourScoreIndex == 6)
         {
-            you.GetComponent<Animator>().SetTrigger("Shoot");
+            you.GetComponent<Animator>().SetTrigger("Shoot2");
             //sfx
             yield return new WaitForSeconds(1f);
-            him.GetComponent<Animator>().SetTrigger("Die");
+            him.GetComponent<Animator>().SetTrigger("Die2");
             //sfx
             yield return new WaitForSeconds(4f);
             panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");

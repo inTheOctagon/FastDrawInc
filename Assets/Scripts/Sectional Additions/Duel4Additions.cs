@@ -8,5 +8,6 @@ public class Duel4Additions : MonoBehaviour
     private void Awake()
     {
         duelManager.GetComponent<DuelManager>().duel4Con = true;
+        duelManager.timerValue = ValueManager.newTimerValue + 0.5f;
     }
 }
