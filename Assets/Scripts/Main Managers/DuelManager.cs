@@ -364,8 +364,7 @@ public class DuelManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             him.GetComponent<Animator>().SetTrigger("Die1");
             yield return new WaitForSeconds(2.5f);
-            him.GetComponent<Animator>().SetTrigger("STOP");
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(1.5f);
             theStrongOneText.GetComponent<Animator>().SetTrigger("FadeIn");
             timerFiller = true;
             yield return new WaitForSeconds(1.5f);
