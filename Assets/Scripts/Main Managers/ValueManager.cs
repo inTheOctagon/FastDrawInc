@@ -11,6 +11,10 @@ public class ValueManager : MonoBehaviour
     
     public static float newTimerValue = 3.9f;
 
+    //your name
+
+    public static string playerName;
+
     
 
 }

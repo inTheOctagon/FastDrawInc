@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menus/Main Menu.unity
+    guid: 9145537aee9f9374a8ac8da5201ca310
+  - enabled: 1
     path: Assets/Scenes/Duel 1/Clock Tower 1.unity
     guid: 6cb3486ec38228948ada59767788c06b
   - enabled: 1

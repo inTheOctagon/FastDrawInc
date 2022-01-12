@@ -46,6 +46,8 @@ public class DuelManager : MonoBehaviour
     [SerializeField] GameObject scorePanel;
     private Animator scoreAnimator;
     [SerializeField] GameObject timerPenaltyText;
+    //your name
+    [SerializeField] TextMeshProUGUI playerNameText;
 
     [Header("Sectional Additions")]
 
@@ -68,6 +70,8 @@ public class DuelManager : MonoBehaviour
         tournamentManager = tournamentManagerObject.GetComponent<TournamentManager>();
 
         // UI text variables
+
+        playerNameText.text = ValueManager.playerName; 
 
         scoreAnimator = scorePanel.GetComponent<Animator>();
 
