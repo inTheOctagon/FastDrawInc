@@ -13,6 +13,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject fadeInPanel;
     [SerializeField] GameObject fadeOutPanel;
 
+    [SerializeField] AudioClip signingSFX;
+
     private void Start()
     {
         StartCoroutine("setTheMenuUp");
@@ -35,13 +37,14 @@ public class MainMenuManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         fadeOutPanel.GetComponent<Animator>().SetTrigger("FadeOut");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
         fadeOutPanel.SetActive(false);
     }
 
     IEnumerator weGoIn()
     {
-        
+        GetComponent<AudioSource>().PlayOneShot(signingSFX);
+        yield return new WaitForSeconds(2);
         fadeInPanel.SetActive(true);
         ValueManager.playerName = yourName.text.ToString();
         fadeInPanel.GetComponent<Animator>().SetTrigger("FadeIn");
