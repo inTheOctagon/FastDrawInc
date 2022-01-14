@@ -55,6 +55,7 @@ public class MastermindBullet : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
+        GetComponent<AudioSource>().Play(0);
         if (duelManagerScript.clickedBulletCount != 1)
         {
 
@@ -63,6 +64,5 @@ public class MastermindBullet : MonoBehaviour
         }
         duelManagerScript.clickedBulletCount = duelManagerScript.clickedBulletCount - 1;
         Destroy(this.gameObject);
-
     }
 }

@@ -49,6 +49,9 @@ public class DuelManager : MonoBehaviour
     //your name
     [SerializeField] TextMeshProUGUI playerNameText;
 
+    [Header("SFX")]
+    [SerializeField] AudioClip countdownClip;
+
     [Header("Sectional Additions")]
 
     [SerializeField] GameObject theStrongOneText;
@@ -308,10 +311,13 @@ public class DuelManager : MonoBehaviour
         
         yield return new WaitForSeconds(2);
         countdownText.enabled = true;
+        GetComponent<AudioSource>().Play(0);
         countdownText.text = 3.ToString();
         yield return new WaitForSeconds(1);
+        GetComponent<AudioSource>().Play(0);
         countdownText.text = 2.ToString();
         yield return new WaitForSeconds(1);
+        GetComponent<AudioSource>().Play(0);
         countdownText.text = 1.ToString();
         yield return new WaitForSeconds(1);
         
