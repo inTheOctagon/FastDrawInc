@@ -585,7 +585,7 @@ MonoBehaviour:
   scorePanel: {fileID: 399456008}
   timerPenaltyText: {fileID: 1744860080}
   playerNameText: {fileID: 866770324}
-  countdownClip: {fileID: 0}
+  gunshotClip: {fileID: 8300000, guid: 93c91089051dbe74d80ff4d735cc68c0, type: 3}
   theStrongOneText: {fileID: 0}
   howDidHeDoThat: {fileID: 0}
   duel4Con: 0

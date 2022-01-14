@@ -50,7 +50,7 @@ public class DuelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI playerNameText;
 
     [Header("SFX")]
-    [SerializeField] AudioClip countdownClip;
+    [SerializeField] AudioClip gunshotClip;
 
     [Header("Sectional Additions")]
 
@@ -386,7 +386,7 @@ public class DuelManager : MonoBehaviour
         else if (duel4Con && yourScoreIndex == 6)
         {
             you.GetComponent<Animator>().SetTrigger("Shoot2");
-            //sfx
+            GetComponent<AudioSource>().PlayOneShot(gunshotClip);
             yield return new WaitForSeconds(1f);
             him.GetComponent<Animator>().SetTrigger("Die2");
             //sfx
@@ -396,7 +396,7 @@ public class DuelManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             yield return new WaitForSeconds(3f);
-            Destroy((GameObject.FindGameObjectWithTag("Clock Tower")));
+            
             tournamentManager.nextScene();
 
 
@@ -411,7 +411,7 @@ public class DuelManager : MonoBehaviour
         else if(!duel4Con)
         {
             you.GetComponent<Animator>().SetTrigger("Shoot");
-            //sfx
+            GetComponent<AudioSource>().PlayOneShot(gunshotClip);
             yield return new WaitForSeconds(1f);
             him.GetComponent<Animator>().SetTrigger("Die");
             //sfx
@@ -451,7 +451,7 @@ public class DuelManager : MonoBehaviour
         else
         {
             him.GetComponent<Animator>().SetTrigger("Shoot");
-            //sfx
+            GetComponent<AudioSource>().PlayOneShot(gunshotClip);
             yield return new WaitForSeconds(1f);
             you.GetComponent<Animator>().SetTrigger("Die");
             //sfx
