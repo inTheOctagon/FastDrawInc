@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Board
   - taf
+  - Clock Tower
   layers:
   - Default
   - TransparentFX

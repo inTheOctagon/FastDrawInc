@@ -11,10 +11,11 @@ public class NormalBullet : MonoBehaviour
     Vector2 bulletSpawnLoc;
 
     DuelManager duelManagerScript;
-    
 
-    
-    
+    [SerializeField] AudioClip clickingClip;
+
+
+
     private void Awake()
     {
         //bullet size
@@ -231,6 +232,16 @@ public class NormalBullet : MonoBehaviour
             
         }
         duelManagerScript.clickedBulletCount = duelManagerScript.clickedBulletCount - 1;
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        StartCoroutine("destroyaWithTimer");
+        
+    }
+
+    IEnumerator destroyaWithTimer()
+    {
+        yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
         
     }

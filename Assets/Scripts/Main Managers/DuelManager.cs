@@ -396,6 +396,7 @@ public class DuelManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             yield return new WaitForSeconds(3f);
+            Destroy((GameObject.FindGameObjectWithTag("Clock Tower")));
             tournamentManager.nextScene();
 
 
@@ -421,6 +422,7 @@ public class DuelManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             yield return new WaitForSeconds(3f);
+            Destroy((GameObject.FindGameObjectWithTag("Clock Tower")));
             tournamentManager.nextScene();
         }
         
@@ -459,7 +461,9 @@ public class DuelManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             yield return new WaitForSeconds(3f);
+            Destroy((GameObject.FindGameObjectWithTag("Clock Tower")));
             tournamentManager.youareDeadScene();
+            
         }
         
 

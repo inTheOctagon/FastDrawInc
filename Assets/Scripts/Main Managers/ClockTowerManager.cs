@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class ClockTowerManager : MonoBehaviour
 {
+    [Header("Audio Variables")]
+    
+    [SerializeField] AudioClip bellClip;
+    [SerializeField] AudioClip backgroundClip;
+    private bool background;
+    
+    [Header("Visual Variables")]
     [SerializeField] GameObject proudlyText;
     [SerializeField] GameObject duelText;
     [SerializeField] GameObject towerPanel;
@@ -12,17 +19,28 @@ public class ClockTowerManager : MonoBehaviour
     [SerializeField] Sprite duelTime;
 
     [Header("Tournament Manager")]
+    
     [SerializeField] TournamentManager tournamentManager;
     private void Awake()
     {
+
         StartCoroutine("ClockTower");
+        DontDestroyOnLoad(this.gameObject);
+        background = true;
+
     }
 
-
+    private void Update()
+    {
+        if (background && GetComponent<AudioSource>().volume < 0.6f)
+        {
+            GetComponent<AudioSource>().volume += 0.1f * Time.deltaTime;
+        }
+    }
 
     IEnumerator ClockTower()
     {
-
+        GetComponent<AudioSource>().Play(0);
         yield return new WaitForSeconds(2.5f);
         proudlyText.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(2.5f);
@@ -33,10 +51,9 @@ public class ClockTowerManager : MonoBehaviour
         proudlyText.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(4.5f);
         clockTower.GetComponent<SpriteRenderer>().sprite = duelTime;
-        yield return new WaitForSeconds(1.5f);
-        // sound repeating
-        yield return new WaitForSeconds(1.5f);
-        // sound repeating
+        GetComponent<AudioSource>().PlayOneShot(bellClip);
+        yield return new WaitForSeconds(5.5f);
+       
         tournamentManager.nextScene();
 
     }
