@@ -51,6 +51,8 @@ public class DuelManager : MonoBehaviour
 
     [Header("SFX")]
     [SerializeField] AudioClip gunshotClip;
+    [SerializeField] AudioClip graveClip;
+    [SerializeField] AudioClip scoreUpClip;
 
     [Header("Sectional Additions")]
 
@@ -340,6 +342,7 @@ public class DuelManager : MonoBehaviour
         timerCondition = false;
         yield return new WaitForSeconds(0.5f);
         scoreAnimator.SetBool("UIScoresAnim", true);
+        GetComponent<AudioSource>().PlayOneShot(scoreUpClip,0.5f);
         yield return new WaitForSeconds(1.8f);
         yourScoreText.text = yourScoreIndex.ToString();
         yield return new WaitForSeconds(2.4f);
@@ -371,6 +374,7 @@ public class DuelManager : MonoBehaviour
         else if(duel4Con && yourScoreIndex == 3)
         {
             you.GetComponent<Animator>().SetTrigger("Shoot");
+            GetComponent<AudioSource>().PlayOneShot(gunshotClip, 0.7f);
             yield return new WaitForSeconds(1f);
             him.GetComponent<Animator>().SetTrigger("Die1");
             yield return new WaitForSeconds(2.5f);
@@ -386,10 +390,11 @@ public class DuelManager : MonoBehaviour
         else if (duel4Con && yourScoreIndex == 6)
         {
             you.GetComponent<Animator>().SetTrigger("Shoot2");
-            GetComponent<AudioSource>().PlayOneShot(gunshotClip);
+            GetComponent<AudioSource>().PlayOneShot(gunshotClip,0.7f);
             yield return new WaitForSeconds(1f);
             him.GetComponent<Animator>().SetTrigger("Die2");
-            //sfx
+            yield return new WaitForSeconds(2.9f);
+            GetComponent<AudioSource>().PlayOneShot(graveClip,0.5f);
             yield return new WaitForSeconds(4f);
             panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
             yield return new WaitForSeconds(1f);
@@ -411,10 +416,11 @@ public class DuelManager : MonoBehaviour
         else if(!duel4Con)
         {
             you.GetComponent<Animator>().SetTrigger("Shoot");
-            GetComponent<AudioSource>().PlayOneShot(gunshotClip);
+            GetComponent<AudioSource>().PlayOneShot(gunshotClip,0.7f);
             yield return new WaitForSeconds(1f);
             him.GetComponent<Animator>().SetTrigger("Die");
-            //sfx
+            yield return new WaitForSeconds(2.9f);
+            GetComponent<AudioSource>().PlayOneShot(graveClip,0.5f);
             yield return new WaitForSeconds(4f);
 
             panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -436,6 +442,7 @@ public class DuelManager : MonoBehaviour
         bulletCountCondition = false;
         yield return new WaitForSeconds(0.5f);
         scoreAnimator.SetBool("UIScoresAnim", true);
+        GetComponent<AudioSource>().PlayOneShot(scoreUpClip, 0.5f);
         yield return new WaitForSeconds(1.8f);
         opponentsScoreText.text = opponentsScoreIndex.ToString();
         yield return new WaitForSeconds(2.4f);
@@ -451,10 +458,11 @@ public class DuelManager : MonoBehaviour
         else
         {
             him.GetComponent<Animator>().SetTrigger("Shoot");
-            GetComponent<AudioSource>().PlayOneShot(gunshotClip);
+            GetComponent<AudioSource>().PlayOneShot(gunshotClip,0.7f);
             yield return new WaitForSeconds(1f);
             you.GetComponent<Animator>().SetTrigger("Die");
-            //sfx
+            yield return new WaitForSeconds(2.9f);
+            GetComponent<AudioSource>().PlayOneShot(graveClip,0.5f);
             yield return new WaitForSeconds(4f);
             panelFadeIn.GetComponent<Animator>().SetTrigger("FadeIn");
             yield return new WaitForSeconds(1f);
