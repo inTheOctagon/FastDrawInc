@@ -140,7 +140,7 @@ public class EveningManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         theEveningText.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(3f);
-        if (firstEvening) GetComponent<AudioSource>().PlayOneShot(doorShutClip);
+        if (firstEvening) GetComponent<AudioSource>().PlayOneShot(doorShutClip,0.5f);
         optionsFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
         mainPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(1);
@@ -151,7 +151,7 @@ public class EveningManager : MonoBehaviour
 
     public void eveningOneOptionOne()
     {
-        GetComponent<AudioSource>().PlayOneShot(exteriorFootstepsClip);
+        GetComponent<AudioSource>().PlayOneShot(exteriorFootstepsClip, 0.5f);
         optionOnePanel.SetActive(true);
         pathOneSecondBitCon = true;
         pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -217,7 +217,7 @@ public class EveningManager : MonoBehaviour
         pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeOut");
         pathOneSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
         pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
-        exteriorSourceBool = false;
+        if (firstEvening) exteriorSourceBool = false;
         yield return new WaitForSeconds(3);
         Destroy(clockTower);
         tournamentManager.GetComponent<TournamentManager>().nextScene();
@@ -228,7 +228,7 @@ public class EveningManager : MonoBehaviour
         pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeOut");
         pathTwoSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
         pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
-        exteriorSourceBool = false;
+        if(firstEvening) exteriorSourceBool = false;
         yield return new WaitForSeconds(3);
         Destroy(clockTower);
         tournamentManager.GetComponent<TournamentManager>().nextScene();
