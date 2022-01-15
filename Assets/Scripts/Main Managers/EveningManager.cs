@@ -111,11 +111,11 @@ public class EveningManager : MonoBehaviour
 
         if (exteriorSourceBool)
         {
-            exteriorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(exteriorSource.GetComponent<AudioSource>().volume, 0.3f, 0.1f * Time.deltaTime);
+            exteriorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(exteriorSource.GetComponent<AudioSource>().volume, 0.2f, 0.05f * Time.deltaTime);
         }
         else if (!exteriorSourceBool && exteriorSource.GetComponent<AudioSource>().volume > 0)
         {
-            exteriorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(exteriorSource.GetComponent<AudioSource>().volume, 0, 0.1f * Time.deltaTime);
+            exteriorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(exteriorSource.GetComponent<AudioSource>().volume, 0, 0.05f * Time.deltaTime);
         }
         else return;
 
@@ -129,8 +129,11 @@ public class EveningManager : MonoBehaviour
     {
         
         yield return new WaitForSeconds(2);
-        exteriorSourceBool = true;
-        exteriorSource.GetComponent<AudioSource>().Play(0);
+        if(firstEvening)
+        {
+            exteriorSourceBool = true;
+            exteriorSource.GetComponent<AudioSource>().Play(0);
+        }
         yield return new WaitForSeconds(2);
         theEveningText.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(3f);
