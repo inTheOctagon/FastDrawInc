@@ -34,6 +34,7 @@ public class EveningManager : MonoBehaviour
     [Header("Sound Variables")]
     public bool firstEvening = false;
     [SerializeField] AudioClip doorShutClip;
+    [SerializeField] AudioClip catAngryClip;
     GameObject clockTower;
     [SerializeField] GameObject exteriorSource;
     private bool exteriorSourceBool = false;
@@ -82,6 +83,7 @@ public class EveningManager : MonoBehaviour
         else if (Input.anyKeyDown && pathOneSecondBitCon)
         {
             pathOneSecondBitCon = false;
+            if (firstEvening) GetComponent<AudioSource>().PlayOneShot(catAngryClip, 0.5f);
             pathOneSecondBit.GetComponent<Animator>().SetTrigger("FadeIn");
             pathOneExit = true;
         }
