@@ -35,6 +35,7 @@ public class EveningManager : MonoBehaviour
     public bool firstEvening = false;
     [SerializeField] AudioClip doorShutClip;
     [SerializeField] AudioClip catAngryClip;
+    [SerializeField] AudioClip exteriorFootstepsClip;
     GameObject clockTower;
     [SerializeField] GameObject exteriorSource;
     private bool exteriorSourceBool = false;
@@ -150,6 +151,7 @@ public class EveningManager : MonoBehaviour
 
     public void eveningOneOptionOne()
     {
+        GetComponent<AudioSource>().PlayOneShot(exteriorFootstepsClip);
         optionOnePanel.SetActive(true);
         pathOneSecondBitCon = true;
         pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
