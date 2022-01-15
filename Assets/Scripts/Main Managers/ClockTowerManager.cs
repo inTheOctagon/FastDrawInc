@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClockTowerManager : MonoBehaviour
 {
     [Header("Audio Variables")]
     
     [SerializeField] AudioClip bellClip;
-    [SerializeField] AudioClip backgroundClip;
-    private bool background;
+    
+    public bool background;
+    
     
     [Header("Visual Variables")]
     [SerializeField] GameObject proudlyText;
@@ -21,11 +23,14 @@ public class ClockTowerManager : MonoBehaviour
     [Header("Tournament Manager")]
     
     [SerializeField] TournamentManager tournamentManager;
+
+    
+
     private void Awake()
     {
-
+        DontDestroyOnLoad(gameObject);
         StartCoroutine("ClockTower");
-        DontDestroyOnLoad(this.gameObject);
+        
         background = true;
 
     }
@@ -36,7 +41,16 @@ public class ClockTowerManager : MonoBehaviour
         {
             GetComponent<AudioSource>().volume += 0.1f * Time.deltaTime;
         }
+        else if (!background && GetComponent<AudioSource>().volume != 0)
+        {
+            GetComponent<AudioSource>().volume -= +0.1f * Time.deltaTime;
+            Debug.Log(GetComponent<AudioSource>().volume);
+
+        }
+        else return;
     }
+   
+
 
     IEnumerator ClockTower()
     {

@@ -31,6 +31,10 @@ public class EveningManager : MonoBehaviour
     [SerializeField] GameObject pathTwoSecondBit;
     [SerializeField] GameObject pathTwoPressAnyKeyText;
     bool pathTwoExit = false;
+    [Header("Sound Variables")]
+
+    GameObject clockTower;
+    private bool soundSetter = false;
 
     [Header("Tournament Manager")]
     [SerializeField] GameObject tournamentManager;
@@ -40,10 +44,17 @@ public class EveningManager : MonoBehaviour
     private void Awake()
     {
         StartCoroutine("OptionsPanelSetter");
+        clockTower = GameObject.FindGameObjectWithTag("Clock Tower");
+        clockTower.GetComponent<ClockTowerManager>().background = false;
+        
     }
 
     private void Update()
     {
+       
+        
+
+        
         if (Input.anyKeyDown && mainSecondBitCon)
         {
             optionsSecondBit.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -90,10 +101,19 @@ public class EveningManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+
+
+        
+
+        
+        
     }
+
+    
 
     IEnumerator OptionsPanelSetter()
     {
+        
         yield return new WaitForSeconds(2);
         theEveningText.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(3f);
@@ -175,6 +195,7 @@ public class EveningManager : MonoBehaviour
         pathOneSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
         pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(3);
+        Destroy(clockTower);
         tournamentManager.GetComponent<TournamentManager>().nextScene();
     }
 
@@ -184,6 +205,7 @@ public class EveningManager : MonoBehaviour
         pathTwoSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
         pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(3);
+        Destroy(clockTower);
         tournamentManager.GetComponent<TournamentManager>().nextScene();
     }
 
