@@ -658,9 +658,9 @@ MonoBehaviour:
   scorePanel: {fileID: 399456008}
   timerPenaltyText: {fileID: 1744860080}
   playerNameText: {fileID: 2089005012}
-  gunshotClip: {fileID: 0}
-  graveClip: {fileID: 0}
-  scoreUpClip: {fileID: 0}
+  gunshotClip: {fileID: 8300000, guid: 93c91089051dbe74d80ff4d735cc68c0, type: 3}
+  graveClip: {fileID: 8300000, guid: 055e0675656d5ae41a073d014f90a44e, type: 3}
+  scoreUpClip: {fileID: 8300000, guid: 0fe5b5d0efdba214389693ab1c13daff, type: 3}
   theStrongOneText: {fileID: 0}
   howDidHeDoThat: {fileID: 0}
   duel4Con: 0
@@ -2784,7 +2784,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721936201370100501, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -262
+      value: -271
       objectReference: {fileID: 0}
     - target: {fileID: 4721936201370100501, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2879,12 +2879,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 247.7082
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 228
+      value: 195.8
       objectReference: {fileID: 0}
     - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -221
+      value: -232.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183105, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_text
+      value: One of the Guys Who Tars and Feathers
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183105, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
@@ -2923,14 +2935,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4537477246907539030, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 15.94
+      value: 66.2
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_text
       value: "The wind brings his stench of tar and feather through all this distance
-        between you and him and makes it harder to focus even while facing death.\n\nIf
-        the crosshair touches a tar and feather pool the timer value will decreased
-        by a set amount.\n\n     Next: Press Any Button"
+        between you and him: You wouldn't guess there were a much of an economical
+        competition in his occupation but in this, we hurt together, no matter who
+        we are, I guess.\n\nIf the crosshair touches a tar and feather pool the timer
+        value will decreased by a set amount.\n\n     Next: Press Any Button"
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_fontColor.a
@@ -2974,11 +2987,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -337.502
+      value: -359.5159
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -253.2784
+      value: -166.8795
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3010,7 +3023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.y

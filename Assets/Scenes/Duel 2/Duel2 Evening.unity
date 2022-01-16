@@ -497,13 +497,52 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &457891486 stripped
+--- !u!1 &160525053
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1223282375988737348, guid: 91cea843fb9ef4849968bca200ba75d8, type: 3}
-  m_PrefabInstance: {fileID: 1473175434}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 160525054}
+  - component: {fileID: 160525055}
+  m_Layer: 0
+  m_Name: Second Evening Additions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &160525054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160525053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 240.20331, y: 231.10765, z: -0.9352824}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &160525055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160525053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c40a772fab68d242a8c9b5a5a1fabaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EveningManager: {fileID: 1877728206}
 --- !u!1 &458270221
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +578,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
   m_PrefabInstance: {fileID: 6432501366645259208}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1877728206}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1a89b95303dc4b46a8c5feadace14e3, type: 3}
@@ -1866,7 +1905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.005779, y: -202.39}
+  m_AnchoredPosition: {x: 0.005779, y: -167.18}
   m_SizeDelta: {x: 726.1658, y: 151.615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1431672757
@@ -1889,8 +1928,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Your focus shifts back and fourth between the blue handkerchief and anything
-    in the environment you perceive.  \n\n"
+  m_text: "Your coffee doesn't last as long as you have expected it to last. Your
+    focus shifts back and fourth between the blue handkerchief and anything in the
+    environment you perceive.  \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
   m_sharedMaterial: {fileID: -6333832300264551496, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
@@ -2647,14 +2687,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'After some time you manage to string a thought or two about things other
+  m_text: "After some time you manage to string a thought or two about things other
     than the blue handkerchief before going back to it and after some more time you
     go to your bed thinking about this town having transportation issues and fall
-    asleep while you are on possible types of transportation methods.
-
-
-    Everything
-    stays exactly the same.'
+    asleep while you are on types of transportation methods you find applicable in
+    this context. Being an intellectual has saved you, again. \n\nEverything stays
+    exactly the same."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
   m_sharedMaterial: {fileID: -6333832300264551496, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
@@ -2750,6 +2788,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1877728206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6432501367159521276, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
+  m_PrefabInstance: {fileID: 6432501366645259208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1900008969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2923,7 +2966,7 @@ RectTransform:
   - {fileID: 521451340}
   - {fileID: 1900008970}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2994,10 +3037,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1711906907}
     - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
-      propertyPath: valueManager
-      value: 
-      objectReference: {fileID: 457891486}
-    - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
       propertyPath: optionOnePanel
       value: 
       objectReference: {fileID: 521451339}
@@ -3021,10 +3060,6 @@ PrefabInstance:
       propertyPath: pathTwoFirstBit
       value: 
       objectReference: {fileID: 1431672755}
-    - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
-      propertyPath: pressAnyKeyText
-      value: 
-      objectReference: {fileID: 76799001}
     - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
       propertyPath: optionsSecondBit
       value: 

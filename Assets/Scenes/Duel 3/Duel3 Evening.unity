@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -20.188, y: -162}
+  m_AnchoredPosition: {x: -20.188, y: -138.7}
   m_SizeDelta: {x: 574.5938, y: 187.0289}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &73940169
@@ -496,7 +496,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457891486 stripped
 GameObject:
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
   m_PrefabInstance: {fileID: 6432501366645259208}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1118919272}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1a89b95303dc4b46a8c5feadace14e3, type: 3}
@@ -792,7 +792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 13.588, y: -149.88}
+  m_AnchoredPosition: {x: 13.588, y: -140}
   m_SizeDelta: {x: 642.1451, y: 151.615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600584774
@@ -816,7 +816,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: " \n\n\n\n\n\nYou realize these seemingly random acts are directed towards
-    his shadow."
+    his shadow and that you are the only one paying attention to him among the crowd."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
   m_sharedMaterial: {fileID: -6333832300264551496, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
@@ -947,7 +947,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000020742, y: -177}
+  m_AnchoredPosition: {x: -0.000020742, y: -192.1}
   m_SizeDelta: {x: 239.1103, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &669647967
@@ -1101,7 +1101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1.0756, y: -368}
+  m_AnchoredPosition: {x: -1.0756, y: -362.4}
   m_SizeDelta: {x: 570.15, y: 151.615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731640222
@@ -1125,13 +1125,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'While you reach to touch his back, he suddenly turns towards the moon
-    and starts to make noises you think resembles a cat''s hissing making you take
-    few steps away from him. Before you decide your next move he runs towards a narrow
-    street and vanishes in the dark. Some things do not even make sense even when
-    you are closer to them.
+    and starts to make noises you think resembles a big feral in pain, making you
+    take few steps away from him. Before you decide your next move he runs towards
+    a narrow street and vanishes in the dark. Some things do not even make sense
+    even when you are closer to them and some of those things also could make your
+    reality start crumbling but do not, such as this one.
 
 
-    Everything is exactly the same.'
+    Everything is exactly
+    the same.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
   m_sharedMaterial: {fileID: -6333832300264551496, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
@@ -1262,7 +1264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.0737, y: -232}
+  m_AnchoredPosition: {x: -1.0737, y: -246.5}
   m_SizeDelta: {x: 239.1103, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &733078196
@@ -1828,6 +1830,55 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1076831819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076831820}
+  - component: {fileID: 1076831821}
+  m_Layer: 0
+  m_Name: Third Evening Additions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1076831820
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076831819}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 240.20331, y: 231.10765, z: -0.9352824}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1076831821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076831819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70a2233a8bd06a045856dd60ad1f0633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EveningManager: {fileID: 1118919272}
+--- !u!1 &1118919272 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6432501367159521276, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
+  m_PrefabInstance: {fileID: 6432501366645259208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1288842855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 560794717973918913, guid: d2cb7610d414d5044a21106bdb359614, type: 3}
@@ -1891,9 +1942,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You watch him move the same way for a while. As you feel sleep pulling
-    you to your bed, the man suddenly stops and turns towards Moon. He gets into
-    a what you consider to be a tribal fighting stance.   \n\n"
+  m_text: "You watch him move the same way for a time and his actions do not even
+    seem strange anymore. As you feel sleep pulling you to your room, the man suddenly
+    stops and turns towards Moon. He gets into a what you consider to be a tribal
+    fighting stance.   \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
   m_sharedMaterial: {fileID: -6333832300264551496, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
@@ -2470,7 +2522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1.0737, y: -151}
+  m_AnchoredPosition: {x: -1.0737, y: -122.3}
   m_SizeDelta: {x: 570.1539, y: 151.615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1771883776
@@ -2493,8 +2545,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'When you are only few steps away from him, he continues to mind his business
-    and even you saying "Hey" doesn''t change anything so, you decide to move closer.
+  m_text: 'When you are only few steps away from him, he continues to mind his own
+    business and even you saying "Hey" doesn''t change anything hence you decide
+    to move closer.
 
 
 '
@@ -2628,7 +2681,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.0086851, y: -370}
+  m_AnchoredPosition: {x: 0.0086851, y: -383.8}
   m_SizeDelta: {x: 726.16, y: 151.615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1862887213
@@ -2652,8 +2705,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'After staying in that stance for few seconds he runs towards a narrow
-    street and vanishes in the dark. Was staying in the better choice? Could you
-    make sense of this if you were closer?
+    street and vanishes in the dark. Could you make sense of this if you were closer?
+    You might have missed an oppurtunity of a life time but at least it was comfortable
+    here.
 
 
     Everything stays exactly the same.'
@@ -2925,13 +2979,18 @@ RectTransform:
   - {fileID: 521451340}
   - {fileID: 1900008970}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2116519401 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1704442398, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
+  m_PrefabInstance: {fileID: 6432501366645259208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6432501366645259208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3000,6 +3059,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 457891486}
     - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
+      propertyPath: interiorSource
+      value: 
+      objectReference: {fileID: 2116519401}
+    - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
+      propertyPath: manRunningClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c42a2c85b12016548b94ea6fba51c419, type: 3}
+    - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
       propertyPath: optionOnePanel
       value: 
       objectReference: {fileID: 521451339}
@@ -3011,6 +3078,10 @@ PrefabInstance:
       propertyPath: theEveningText
       value: 
       objectReference: {fileID: 1025509346}
+    - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
+      propertyPath: manGrowlingClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e9f898ad5dd2454e86f265240848487, type: 3}
     - target: {fileID: 6432501367159521278, guid: 6d0198ce89329a94c8f0e4b3275f7333, type: 3}
       propertyPath: optionsFirstBit
       value: 

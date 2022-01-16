@@ -36,10 +36,21 @@ public class EveningManager : MonoBehaviour
     [SerializeField] AudioClip doorShutClip;
     [SerializeField] AudioClip catAngryClip;
     [SerializeField] AudioClip exteriorFootstepsClip;
+    [SerializeField] AudioClip harshWindsClip;
     GameObject clockTower;
     [SerializeField] GameObject exteriorSource;
     private bool exteriorSourceBool = false;
-    
+
+    public bool secondEvening = false;
+    [SerializeField] GameObject interiorSource;
+    private bool interiorSourceBool;
+    [SerializeField] AudioClip interiorFootstepsClip;
+    [SerializeField] AudioClip drinkingClip;
+
+    public bool thirdEvening;
+    [SerializeField] AudioClip manGrowlingClip;
+    [SerializeField] AudioClip manRunningClip;
+
 
     [Header("Tournament Manager")]
     [SerializeField] GameObject tournamentManager;
@@ -50,7 +61,7 @@ public class EveningManager : MonoBehaviour
     {
         StartCoroutine("OptionsPanelSetter");
         clockTower = GameObject.FindGameObjectWithTag("Clock Tower");
-        //clockTower.GetComponent<ClockTowerManager>().background = false;
+        clockTower.GetComponent<ClockTowerManager>().background = false;
         
     }
 
@@ -85,11 +96,17 @@ public class EveningManager : MonoBehaviour
         {
             pathOneSecondBitCon = false;
             if (firstEvening) GetComponent<AudioSource>().PlayOneShot(catAngryClip, 0.5f);
+            if (thirdEvening)
+            {
+                GetComponent<AudioSource>().PlayOneShot(manGrowlingClip, 0.5f);
+                GetComponent<AudioSource>().PlayOneShot(manRunningClip, 0.5f);
+            }
             pathOneSecondBit.GetComponent<Animator>().SetTrigger("FadeIn");
             pathOneExit = true;
         }
         else if(Input.anyKeyDown && pathTwoSecondBitCon)
         {
+            if(firstEvening) GetComponent<AudioSource>().PlayOneShot(harshWindsClip, 0.3f);
             pathTwoSecondBitCon = false;
             pathTwoSecondBit.GetComponent<Animator>().SetTrigger("FadeIn");
             pathTwoExit = true;
@@ -112,14 +129,21 @@ public class EveningManager : MonoBehaviour
 
         if (exteriorSourceBool)
         {
-            exteriorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(exteriorSource.GetComponent<AudioSource>().volume, 0.2f, 0.05f * Time.deltaTime);
+            exteriorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(exteriorSource.GetComponent<AudioSource>().volume, 0.25f, 0.1f * Time.deltaTime);
         }
-        else if (!exteriorSourceBool && exteriorSource.GetComponent<AudioSource>().volume > 0)
+        else if (!exteriorSourceBool && exteriorSource.GetComponent<AudioSource>().volume != 0)
         {
-            exteriorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(exteriorSource.GetComponent<AudioSource>().volume, 0, 0.05f * Time.deltaTime);
+            exteriorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(exteriorSource.GetComponent<AudioSource>().volume, 0, 0.11f * Time.deltaTime);
         }
-        else return;
-
+        
+        if(interiorSourceBool)
+        {
+            interiorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(interiorSource.GetComponent<AudioSource>().volume, 0.25f, 0.1f * Time.deltaTime);
+        }
+        else if(!interiorSourceBool && interiorSource.GetComponent<AudioSource>().volume != 0)
+        {
+            interiorSource.GetComponent<AudioSource>().volume = Mathf.MoveTowards(interiorSource.GetComponent<AudioSource>().volume, 0, 0.1f * Time.deltaTime);
+        }
 
 
     }
@@ -135,6 +159,12 @@ public class EveningManager : MonoBehaviour
             exteriorSourceBool = true;
             exteriorSource.GetComponent<AudioSource>().Play(0);
         }
+        if(secondEvening || thirdEvening)
+        {
+            interiorSourceBool = true;
+            interiorSource.GetComponent<AudioSource>().Play(0);
+        }
+
         yield return new WaitForSeconds(2);
         theEveningText.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(3f);
@@ -162,6 +192,7 @@ public class EveningManager : MonoBehaviour
 
     public void eveningOneoptionTwo()
     {
+        
         optionTwoPanel.SetActive(true);
         pathTwoSecondBitCon = true;
         pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -173,6 +204,7 @@ public class EveningManager : MonoBehaviour
 
     public void eveningTwoOptionOne()
     {
+        GetComponent<AudioSource>().PlayOneShot(interiorFootstepsClip, 0.5f);
         optionOnePanel.SetActive(true);
         pathOneSecondBitCon = true;
         pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -183,6 +215,7 @@ public class EveningManager : MonoBehaviour
 
     public void eveningTwooptionTwo()
     {
+        GetComponent<AudioSource>().PlayOneShot(drinkingClip, 0.4f);
         optionTwoPanel.SetActive(true);
         pathTwoSecondBitCon = true;
         pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -194,6 +227,11 @@ public class EveningManager : MonoBehaviour
 
     public void eveningThreeOptionOne()
     {
+        interiorSourceBool = false;
+        exteriorSourceBool = true;
+        exteriorSource.GetComponent<AudioSource>().Play(0);
+        GetComponent<AudioSource>().PlayOneShot(doorShutClip, 0.5f);
+        GetComponent<AudioSource>().PlayOneShot(exteriorFootstepsClip, 0.5f);
         optionOnePanel.SetActive(true);
         pathOneSecondBitCon = true;
         pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
@@ -218,6 +256,7 @@ public class EveningManager : MonoBehaviour
         pathOneSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
         pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
         if (firstEvening) exteriorSourceBool = false;
+        if (secondEvening) interiorSourceBool = false;
         yield return new WaitForSeconds(3);
         Destroy(clockTower);
         tournamentManager.GetComponent<TournamentManager>().nextScene();
@@ -229,6 +268,12 @@ public class EveningManager : MonoBehaviour
         pathTwoSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
         pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeOut");
         if(firstEvening) exteriorSourceBool = false;
+        if(secondEvening) interiorSourceBool = false;
+        if(thirdEvening)
+        {
+            exteriorSourceBool = false;
+            interiorSourceBool = false;
+        }
         yield return new WaitForSeconds(3);
         Destroy(clockTower);
         tournamentManager.GetComponent<TournamentManager>().nextScene();

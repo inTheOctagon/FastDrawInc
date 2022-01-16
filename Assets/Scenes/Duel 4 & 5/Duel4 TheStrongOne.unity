@@ -441,6 +441,8 @@ MonoBehaviour:
   timerPenaltyText: {fileID: 1744860080}
   playerNameText: {fileID: 1592080443}
   gunshotClip: {fileID: 8300000, guid: 93c91089051dbe74d80ff4d735cc68c0, type: 3}
+  graveClip: {fileID: 0}
+  scoreUpClip: {fileID: 0}
   theStrongOneText: {fileID: 286680130}
   howDidHeDoThat: {fileID: 286680130}
   duel4Con: 0
@@ -1763,11 +1765,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721936201370100501, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -262
+      value: -264
       objectReference: {fileID: 0}
     - target: {fileID: 4721936201370100501, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -221
+      value: -216.01
       objectReference: {fileID: 0}
     - target: {fileID: 4721936201441188434, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_Name
@@ -1858,12 +1860,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 189.5534
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 102.7766
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 228
+      value: 214.1
       objectReference: {fileID: 0}
     - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -221
+      value: -242.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183105, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_text
+      value: The Right Hand of the CEO of Fast Draw Inc.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
@@ -1906,10 +1920,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_text
-      value: "How does the right hand being the strongest person in town of the most
-        powerful person of the whole south get in this situation of facing death
-        to make a living? This doesn't add up. Is the crisis that bad?\n\nSince he
-        is the strongest of the town you have to click twice on each bullet to break.\n\n     
+      value: "Only one can have this much muscle that you know. How does the right
+        hand of the CEO of Fast Draw Inc. get in this situation of facing death to
+        make a living? This doesn't add up. Is the crisis that bad?\n\nSince he is
+        the strongest of the town you have to click twice on each bullet to break.\n\n     
         Next: Press Any Button"
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
@@ -1954,11 +1968,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -296.197
+      value: -375.9763
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -222.2803
+      value: -206.0289
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1990,11 +2004,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 47
+      value: 51.399994
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -535,6 +535,10 @@ MonoBehaviour:
   countdownText: {fileID: 1282166256}
   scorePanel: {fileID: 399456008}
   timerPenaltyText: {fileID: 1744860080}
+  playerNameText: {fileID: 0}
+  gunshotClip: {fileID: 0}
+  graveClip: {fileID: 0}
+  scoreUpClip: {fileID: 0}
   theStrongOneText: {fileID: 0}
   howDidHeDoThat: {fileID: 0}
   duel4Con: 0
@@ -897,7 +901,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721936201370100501, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -262
+      value: -271.5
       objectReference: {fileID: 0}
     - target: {fileID: 4721936201370100501, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -993,11 +997,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 228
+      value: 244.5
       objectReference: {fileID: 0}
     - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -221
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183105, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_text
+      value: 'A Shepherd
+
+'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
@@ -1039,7 +1049,7 @@ PrefabInstance:
       propertyPath: m_text
       value: "It turns out that even shepherds, being one of the main wage earner
         groups that are vital to the system gets affected in harsh economic climates
-        like the one you are in.\n\nIf the shepherd dog touches the crosshair, round
+        like the one we are in. \n\nIf the shepherd dog touches the crosshair, round
         ends in the shepherd's favor.\n\n\n      Next: Press Any Button"
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
@@ -1084,11 +1094,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -293.3234
+      value: -351.2324
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -220.1238
+      value: -242.2347
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1120,11 +1130,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -2.399994
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 47
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

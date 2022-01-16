@@ -428,6 +428,10 @@ MonoBehaviour:
   countdownText: {fileID: 1282166256}
   scorePanel: {fileID: 399456008}
   timerPenaltyText: {fileID: 1744860080}
+  playerNameText: {fileID: 0}
+  gunshotClip: {fileID: 0}
+  graveClip: {fileID: 0}
+  scoreUpClip: {fileID: 0}
   theStrongOneText: {fileID: 0}
   howDidHeDoThat: {fileID: 4246082604600914482}
   duel4Con: 0
@@ -1757,7 +1761,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4721936201370100501, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -262
+      value: -267
       objectReference: {fileID: 0}
     - target: {fileID: 4721936201370100501, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1852,12 +1856,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 169.9959
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 33.1843
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 228
+      value: 223
       objectReference: {fileID: 0}
     - target: {fileID: 4721936202556183104, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -221
+      value: -229.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 4721936202556183105, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
+      propertyPath: m_text
+      value: The CEO of Fast Draw Inc.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 949d7be677292664f86b5424d92f6b95, type: 3}
@@ -2004,28 +2020,33 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4537477246907539030, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 484.9164
+      value: 485.29
       objectReference: {fileID: 0}
     - target: {fileID: 4537477246907539030, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 336.0061
+      value: 478.34
       objectReference: {fileID: 0}
     - target: {fileID: 4537477246907539030, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 8
+      value: 0.0000047684
       objectReference: {fileID: 0}
     - target: {fileID: 4537477246907539030, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 14
+      value: -0.0010388
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_text
       value: "You end up being on the right track about what you sensed before the
-        previous duel: This is a con act that only has one winner unless you do not
-        crash the head of the snake once and for all.\n\nHe being the greediness
-        specimen that he is, he make his men move all the bullets to his bank vault:
-        Avoid hovering over his guards and click on moving bullets before they reach
-        to the bank vault.\n\n         Next: Press Any Button"
+        previous duel: The CEO who stands facing you put his right hand to win the
+        tournament for himself. Has the crisis caused this or has he always been
+        like this? One thing is for sure: You are here to win this.\n\nHe being the
+        greediness specimen that he is, make his men move all the bullets to his
+        bank vault: Avoid hovering over his guards and click on moving bullets before
+        they reach to his bank vault.\n\n         Next: Press Any Button"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
+      propertyPath: m_margin.y
+      value: 25.223526
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_fontColor.a
@@ -2069,11 +2090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -278.9839
+      value: -283.9398
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -209.3624
+      value: -155.7044
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2109,7 +2130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 47
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3942,4 +3963,4 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
