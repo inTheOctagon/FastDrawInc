@@ -6,6 +6,7 @@ using TMPro;
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Main Menu Variables")]
+    
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject mainMenuImage;
     [SerializeField] GameObject mainMenuTitle;
@@ -13,37 +14,46 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject exitButton;
 
     [SerializeField] GameObject startFadeInPanel;
+
     
+    
+    
+    
+    
+    [Header("The Story  Bit")]
+
+    public bool storyBitStarter = false;
+    private bool firstBitBool = false;
+    private bool secondBitBool = false;
+    private bool thirdBitBool = false;
+
     [SerializeField] GameObject pressAnyKey;
     [SerializeField] GameObject firstBitText;
     [SerializeField] GameObject secondBitText;
     [SerializeField] GameObject thirdBitText;
 
+    [SerializeField] AudioClip doorShutClip;
+
     [SerializeField] GameObject streetSoundSource;
     private bool streetSoundSourceBool;
-
     [SerializeField] GameObject officeSoundSource;
     private bool officeSoundSourceBool;
 
+    
 
-    [SerializeField] GameObject exitFadeInPanel;
+    
 
+    [Header("The Contract")]
 
-    [Header("The Story Bit Variables")]
-    private bool storyBitStarter = false;
-    private bool firstBitBool = false;
-    private bool secondBitBool = false;
-    private bool thirdBitBool = false;
-
+    [SerializeField] GameObject theContract;
     [SerializeField] TMP_InputField yourName;
     [SerializeField] GameObject yourNameHere;
     
     //transition
     [SerializeField] GameObject tournamentManager;
-    
-    [SerializeField] GameObject fadeOutPanel;
 
     [SerializeField] AudioClip signingSFX;
+    [SerializeField] GameObject exitFadeInPanel;
 
     private void Start()
     {
@@ -84,15 +94,14 @@ public class MainMenuManager : MonoBehaviour
             }
             else if (secondBitBool && Input.anyKeyDown)
             {
-                //secondBit IENumerator
                 secondBitBool = false;
-                thirdBitBool = true;
+                StartCoroutine("secondStoryBitFunc");
             }
             else if (thirdBitBool && Input.anyKeyDown)
             {
-                //thirdBit IENumerator
+                
                 thirdBitBool = false;
-                StartCoroutine("setTheContractUp");
+                StartCoroutine("thirdStoryBitFunc");
 
             }
         }
@@ -128,6 +137,8 @@ public class MainMenuManager : MonoBehaviour
 
     IEnumerator mainMenuBitsAndSound()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         startFadeInPanel.SetActive(true);
         startFadeInPanel.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(3f);
@@ -158,24 +169,35 @@ public class MainMenuManager : MonoBehaviour
 
     IEnumerator secondStoryBitFunc()
     {
+        
         secondBitText.GetComponent<Animator>().SetTrigger("FadeOut");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
+        thirdBitText.SetActive(true);
         thirdBitText.GetComponent<Animator>().SetTrigger("FadeIn");
-        yield return new WaitForSeconds(1);
-        secondBitBool = true;
+        yield return new WaitForSeconds(2);
+        thirdBitBool = true;
 
     }
 
     IEnumerator thirdStoryBitFunc()
     {
-        
+        officeSoundSourceBool = true;
+        streetSoundSourceBool = false;
+        GetComponent<AudioSource>().PlayOneShot(doorShutClip, 0.5f);
         thirdBitText.GetComponent<Animator>().SetTrigger("FadeOut");
-        storyBitStarter = false;
-        yield return new WaitForSeconds(1);
-        startFadeInPanel.GetComponent<Animator>().SetTrigger("Fadeout");
-
+        pressAnyKey.GetComponent<Animator>().SetTrigger("FadeOut");
+        theContract.SetActive(true);
+        yield return new WaitForSeconds(3);
+        startFadeInPanel.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        startFadeInPanel.SetActive(false);
+        
 
     }
+
+
 
     //the contract part
     IEnumerator setTheContractUp()
