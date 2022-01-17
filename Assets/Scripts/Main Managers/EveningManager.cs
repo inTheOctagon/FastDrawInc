@@ -61,7 +61,7 @@ public class EveningManager : MonoBehaviour
     {
         StartCoroutine("OptionsPanelSetter");
         clockTower = GameObject.FindGameObjectWithTag("Clock Tower");
-        clockTower.GetComponent<ClockTowerManager>().background = false;
+        //clockTower.GetComponent<ClockTowerManager>().background = false;
         
     }
 
@@ -101,6 +101,7 @@ public class EveningManager : MonoBehaviour
                 GetComponent<AudioSource>().PlayOneShot(manGrowlingClip, 0.5f);
                 GetComponent<AudioSource>().PlayOneShot(manRunningClip, 0.5f);
             }
+            pathOneSecondBit.SetActive(true);
             pathOneSecondBit.GetComponent<Animator>().SetTrigger("FadeIn");
             pathOneExit = true;
         }
@@ -108,6 +109,7 @@ public class EveningManager : MonoBehaviour
         {
             if(firstEvening) GetComponent<AudioSource>().PlayOneShot(harshWindsClip, 0.3f);
             pathTwoSecondBitCon = false;
+            pathTwoSecondBit.SetActive(true);
             pathTwoSecondBit.GetComponent<Animator>().SetTrigger("FadeIn");
             pathTwoExit = true;
         }
@@ -182,21 +184,15 @@ public class EveningManager : MonoBehaviour
     public void eveningOneOptionOne()
     {
         GetComponent<AudioSource>().PlayOneShot(exteriorFootstepsClip, 0.5f);
-        optionOnePanel.SetActive(true);
-        pathOneSecondBitCon = true;
-        pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
-        pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        StartCoroutine("optionOneSetter");
         ValueManager.newBulletSize = ValueManager.newBulletSize - ValueManager.newBulletSize / 10;
 
     }
 
     public void eveningOneoptionTwo()
     {
-        
-        optionTwoPanel.SetActive(true);
-        pathTwoSecondBitCon = true;
-        pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
-        pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+
+        StartCoroutine("optionTwoSetter");
         ValueManager.newBulletSize = ValueManager.newBulletSize - ValueManager.newBulletSize / 10;
     }
 
@@ -205,10 +201,7 @@ public class EveningManager : MonoBehaviour
     public void eveningTwoOptionOne()
     {
         GetComponent<AudioSource>().PlayOneShot(interiorFootstepsClip, 0.5f);
-        optionOnePanel.SetActive(true);
-        pathOneSecondBitCon = true;
-        pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
-        pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        StartCoroutine("optionOneSetter");
         ValueManager.newTimerValue = ValueManager.newTimerValue * 0.1f + ValueManager.newTimerValue;
 
     }
@@ -216,11 +209,8 @@ public class EveningManager : MonoBehaviour
     public void eveningTwooptionTwo()
     {
         GetComponent<AudioSource>().PlayOneShot(drinkingClip, 0.4f);
-        optionTwoPanel.SetActive(true);
-        pathTwoSecondBitCon = true;
-        pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
-        pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
-        
+        StartCoroutine("optionTwoSetter");
+
     }
 
     // evening three options
@@ -232,23 +222,54 @@ public class EveningManager : MonoBehaviour
         exteriorSource.GetComponent<AudioSource>().Play(0);
         GetComponent<AudioSource>().PlayOneShot(doorShutClip, 0.5f);
         GetComponent<AudioSource>().PlayOneShot(exteriorFootstepsClip, 0.5f);
-        optionOnePanel.SetActive(true);
-        pathOneSecondBitCon = true;
-        pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
-        pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
-        
+        StartCoroutine("optionOneSetter");
+
 
     }
 
     public void eveningThreeoptionTwo()
     {
-        optionTwoPanel.SetActive(true);
-        pathTwoSecondBitCon = true;
-        pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
-        pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+        StartCoroutine("optionTwoSetter");
 
     }
 
+    IEnumerator optionOneSetter()
+    {
+        optionsFirstBit.GetComponent<Animator>().SetTrigger("FadeOut");
+        optionsSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
+        buttonOne.GetComponent<Animator>().SetTrigger("FadeOut");
+        buttonTwo.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2f);
+        
+        pathOneFirstBit.SetActive(true);
+        pathOnePressAnyKeyText.SetActive(true);
+        pathOneFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
+        pathOnePressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+
+        yield return new WaitForSeconds(0.5f);
+
+        pathOneSecondBitCon = true;
+
+    }
+
+    IEnumerator optionTwoSetter()
+    {
+        optionsFirstBit.GetComponent<Animator>().SetTrigger("FadeOut");
+        optionsSecondBit.GetComponent<Animator>().SetTrigger("FadeOut");
+        buttonOne.GetComponent<Animator>().SetTrigger("FadeOut");
+        buttonTwo.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2f);
+
+        pathTwoFirstBit.SetActive(true);
+        pathTwoPressAnyKeyText.SetActive(true);
+        pathTwoFirstBit.GetComponent<Animator>().SetTrigger("FadeIn");
+        pathTwoPressAnyKeyText.GetComponent<Animator>().SetTrigger("FadeIn");
+
+        yield return new WaitForSeconds(0.5f);
+
+        pathTwoSecondBitCon = true;
+
+    }
 
     IEnumerator pathOneExitNumerator()
     {
