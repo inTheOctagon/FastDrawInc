@@ -6,11 +6,19 @@ using TMPro;
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Main Menu Variables")]
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject mainMenuImage;
     [SerializeField] GameObject mainMenuTitle;
     [SerializeField] GameObject playButton;
     [SerializeField] GameObject exitButton;
 
+    [SerializeField] GameObject startFadeInPanel;
     
+    [SerializeField] GameObject pressAnyKey;
+    [SerializeField] GameObject firstBitText;
+    [SerializeField] GameObject secondBitText;
+    [SerializeField] GameObject thirdBitText;
+
     [SerializeField] GameObject streetSoundSource;
     private bool streetSoundSourceBool;
 
@@ -18,18 +26,21 @@ public class MainMenuManager : MonoBehaviour
     private bool officeSoundSourceBool;
 
 
+    [SerializeField] GameObject exitFadeInPanel;
+
+
     [Header("The Story Bit Variables")]
-    private bool storyBitStarter;
-    private bool firstBit;
-    private bool secondBit;
-    private bool thirdBit;
+    private bool storyBitStarter = false;
+    private bool firstBitBool = false;
+    private bool secondBitBool = false;
+    private bool thirdBitBool = false;
 
     [SerializeField] TMP_InputField yourName;
     [SerializeField] GameObject yourNameHere;
     
     //transition
     [SerializeField] GameObject tournamentManager;
-    [SerializeField] GameObject fadeInPanel;
+    
     [SerializeField] GameObject fadeOutPanel;
 
     [SerializeField] AudioClip signingSFX;
@@ -64,22 +75,23 @@ public class MainMenuManager : MonoBehaviour
         
         if (storyBitStarter)
         {
-            if (firstBit && Input.anyKeyDown)
+            if (firstBitBool && Input.anyKeyDown)
             {
-                //firstBit IENumerator
-                firstBit = false;
-                secondBit = true;
+                firstBitBool = false;
+                StartCoroutine("firstStoryBitFunc");
+                
+                
             }
-            else if (secondBit && Input.anyKeyDown)
+            else if (secondBitBool && Input.anyKeyDown)
             {
                 //secondBit IENumerator
-                secondBit = false;
-                thirdBit = true;
+                secondBitBool = false;
+                thirdBitBool = true;
             }
-            else if (thirdBit && Input.anyKeyDown)
+            else if (thirdBitBool && Input.anyKeyDown)
             {
                 //thirdBit IENumerator
-                thirdBit = false;
+                thirdBitBool = false;
                 StartCoroutine("setTheContractUp");
 
             }
@@ -90,9 +102,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void playButtonFunc()
     {
-        mainMenuTitle.GetComponent<Animator>().SetTrigger("FadeOut");
-        playButton.GetComponent<Animator>().SetTrigger("FadeOut");
-        exitButton.GetComponent<Animator>().SetTrigger("FadeOut");
+        StartCoroutine("mainMenuBitsAndSound");
+        
     }
 
     public void exitButtonFunc()
@@ -115,28 +126,64 @@ public class MainMenuManager : MonoBehaviour
 
     //main menu to story bit 
 
-    IEnumerator mainMenuFaderAndAudioSourceTrigger()
+    IEnumerator mainMenuBitsAndSound()
     {
-        yield return new WaitForSeconds(2f);
-        playButton.SetActive(false);
-        exitButton.SetActive(false);
+        startFadeInPanel.SetActive(true);
+        startFadeInPanel.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(3f);
+        mainMenuImage.SetActive(false);
+        mainMenu.SetActive(false);
+        firstBitText.SetActive(true);
+        pressAnyKey.SetActive(true);
         // street sounds goes in and the texts
         streetSoundSourceBool = true;
-        //first text and next: press any key. and firstbitbool
-        //they fade - only story bits -
-        //and AFter that and it's texts and then secondbitbool
-        //they fade - only story bits -
-        //and AFter that and it's texts and then secondbitbool
-        // the main panel fades away then we end with the contract in front of us.
+        firstBitText.GetComponent<Animator>().SetTrigger("FadeIn");
+        pressAnyKey.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        storyBitStarter = true;
+        firstBitBool = true;
+    }
+
+    IEnumerator firstStoryBitFunc()
+    {
+        firstBitText.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2f);
+        firstBitText.SetActive(false);
+        secondBitText.SetActive(true);
+        secondBitText.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        secondBitBool = true;
+
+    }
+
+    IEnumerator secondStoryBitFunc()
+    {
+        secondBitText.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1);
+        thirdBitText.GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1);
+        secondBitBool = true;
+
+    }
+
+    IEnumerator thirdStoryBitFunc()
+    {
+        
+        thirdBitText.GetComponent<Animator>().SetTrigger("FadeOut");
+        storyBitStarter = false;
+        yield return new WaitForSeconds(1);
+        startFadeInPanel.GetComponent<Animator>().SetTrigger("Fadeout");
+
+
     }
 
     //the contract part
     IEnumerator setTheContractUp()
     {
         yield return new WaitForSeconds(1.5f);
-        fadeOutPanel.GetComponent<Animator>().SetTrigger("FadeOut");
+        startFadeInPanel.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(1.5f);
-        fadeOutPanel.SetActive(false);
+        startFadeInPanel.SetActive(false);
     }
 
     IEnumerator yourNameHereSir()
@@ -150,9 +197,9 @@ public class MainMenuManager : MonoBehaviour
     {
         GetComponent<AudioSource>().PlayOneShot(signingSFX);
         yield return new WaitForSeconds(2);
-        fadeInPanel.SetActive(true);
+        exitFadeInPanel.SetActive(true);
         ValueManager.playerName = yourName.text.ToString();
-        fadeInPanel.GetComponent<Animator>().SetTrigger("FadeIn");
+        exitFadeInPanel.GetComponent<Animator>().SetTrigger("FadeIn");
         yield return new WaitForSeconds(2);
         yield return new WaitForSeconds(2);
         tournamentManager.GetComponent<TournamentManager>().nextScene();
