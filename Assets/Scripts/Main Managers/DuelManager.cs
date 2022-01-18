@@ -50,6 +50,7 @@ public class DuelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI playerNameText;
 
     [Header("SFX")]
+    [SerializeField] AudioClip countdownClip;
     [SerializeField] AudioClip gunshotClip;
     [SerializeField] AudioClip graveClip;
     [SerializeField] AudioClip scoreUpClip;
@@ -67,8 +68,8 @@ public class DuelManager : MonoBehaviour
     public bool theMastermindStart = false;
 
     [SerializeField] GameObject mastermindPanel;
-    
 
+   
     private void Start()
     {
         
@@ -313,13 +314,13 @@ public class DuelManager : MonoBehaviour
         
         yield return new WaitForSeconds(2);
         countdownText.enabled = true;
-        GetComponent<AudioSource>().Play(0);
+        GetComponent<AudioSource>().PlayOneShot(countdownClip, 0.5f);
         countdownText.text = 3.ToString();
         yield return new WaitForSeconds(1);
-        GetComponent<AudioSource>().Play(0);
+        GetComponent<AudioSource>().PlayOneShot(countdownClip, 0.5f);
         countdownText.text = 2.ToString();
         yield return new WaitForSeconds(1);
-        GetComponent<AudioSource>().Play(0);
+        GetComponent<AudioSource>().PlayOneShot(countdownClip, 0.5f);
         countdownText.text = 1.ToString();
         yield return new WaitForSeconds(1);
         

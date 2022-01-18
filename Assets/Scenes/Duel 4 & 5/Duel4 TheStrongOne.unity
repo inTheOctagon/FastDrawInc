@@ -440,9 +440,10 @@ MonoBehaviour:
   scorePanel: {fileID: 399456008}
   timerPenaltyText: {fileID: 1744860080}
   playerNameText: {fileID: 1592080443}
+  countdownClip: {fileID: 8300000, guid: bb524eea52aa18447b4c5115de354a9f, type: 3}
   gunshotClip: {fileID: 8300000, guid: 93c91089051dbe74d80ff4d735cc68c0, type: 3}
-  graveClip: {fileID: 0}
-  scoreUpClip: {fileID: 0}
+  graveClip: {fileID: 8300000, guid: 055e0675656d5ae41a073d014f90a44e, type: 3}
+  scoreUpClip: {fileID: 8300000, guid: 0fe5b5d0efdba214389693ab1c13daff, type: 3}
   theStrongOneText: {fileID: 286680130}
   howDidHeDoThat: {fileID: 286680130}
   duel4Con: 0
