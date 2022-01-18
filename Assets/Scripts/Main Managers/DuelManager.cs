@@ -182,6 +182,7 @@ public class DuelManager : MonoBehaviour
         {
             if(Input.anyKeyDown)
             {
+                
                 howDidHeDoThat.GetComponent<Animator>().SetTrigger("FadeOut");
                 StartCoroutine("theMastermindTipPanel");
                 theMastermind = false;
@@ -353,7 +354,9 @@ public class DuelManager : MonoBehaviour
         if(duel5Con && yourScoreIndex == 2 && (opponentsScoreIndex == 0 || opponentsScoreIndex == 1))
         {
             timerCondition = false;
+
             yield return new WaitForSeconds(0.5f);
+            GetComponent<AudioSource>().PlayOneShot(scoreUpClip);
             scoreAnimator.SetBool("UIScoresAnim", true);
             yield return new WaitForSeconds(1.8f);
             yourScoreText.text = opponentsScoreIndex.ToString();
@@ -470,7 +473,6 @@ public class DuelManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             yield return new WaitForSeconds(3f);
-            GameObject.FindGameObjectWithTag("Clock Tower").GetComponent<ClockTowerManager>().background = false;
             tournamentManager.youareDeadScene();
             
         }

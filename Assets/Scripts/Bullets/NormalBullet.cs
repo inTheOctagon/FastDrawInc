@@ -224,7 +224,7 @@ public class NormalBullet : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        GetComponent<AudioSource>().Play(0);
+        GetComponent<AudioSource>().PlayOneShot(clickingClip, 0.4f);
         if(duelManagerScript.clickedBulletCount != 1)
         {
             

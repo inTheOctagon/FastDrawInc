@@ -12,6 +12,9 @@ public class Dog : MonoBehaviour
     [SerializeField] GameObject duelManager;
 
     
+    [SerializeField] AudioClip grawlingDog;
+
+    
 
 
     private void Start()
@@ -66,6 +69,7 @@ public class Dog : MonoBehaviour
         if(duelManager.GetComponent<DuelManager>().timerCondition && Vector2.Distance(transform.position, targetPos) < 0.3f)
         {
             duelManager.GetComponent<DuelManager>().OpponentWinOutputFunction();
+            GetComponent<AudioSource>().PlayOneShot(grawlingDog,0.5f);
         }
     }
 }

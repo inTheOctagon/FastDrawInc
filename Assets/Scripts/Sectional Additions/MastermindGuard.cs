@@ -18,6 +18,8 @@ public class MastermindGuard : MonoBehaviour
 
     [SerializeField] GameObject bustedText;
 
+    [SerializeField] AudioClip punchClip;
+
     float TimeInterval = 0;
 
     
@@ -91,6 +93,7 @@ public class MastermindGuard : MonoBehaviour
         if (GameObject.Find("Duel Manager").GetComponent<DuelManager>().timerCondition)
         {
             StartCoroutine("BustedText");
+            GetComponent<AudioSource>().PlayOneShot(punchClip, 0.5f);
             GameObject.Find("Duel Manager").GetComponent<DuelManager>().OpponentWinOutputFunction();
         }
         else return;

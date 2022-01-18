@@ -11,6 +11,9 @@ public class StrongBullet : MonoBehaviour
     [SerializeField] Sprite normalBulletSprite;
     [SerializeField] Sprite strongBulletSprite;
 
+    [SerializeField] AudioClip clickingClip;
+    [SerializeField] AudioClip metalThingyClip;
+
     private bool spawnCondition;
 
     Vector2 bulletSpawnLoc;
@@ -235,10 +238,11 @@ public class StrongBullet : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = normalBulletSprite;
             strongBulletCondition = false;
+            
         }
         else 
         {
-            strongBulletCondition = true;
+            
             gameObject.GetComponent<SpriteRenderer>().sprite = strongBulletSprite;
 
             if (duelManagerScript.clickedBulletCount != 1)
@@ -246,9 +250,19 @@ public class StrongBullet : MonoBehaviour
                 Instantiate(strongBulletPrefab, bulletSpawnLoc, Quaternion.identity);
             }
             duelManagerScript.clickedBulletCount = duelManagerScript.clickedBulletCount - 1;
-            
-            Destroy(this.gameObject);
+
+            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<AudioSource>().PlayOneShot(clickingClip, 0.4f);
+            StartCoroutine("destroyaWithTimer");
 
         }
+    }
+
+    IEnumerator destroyaWithTimer()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(this.gameObject);
+
     }
 }

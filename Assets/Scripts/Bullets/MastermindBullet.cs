@@ -10,6 +10,8 @@ public class MastermindBullet : MonoBehaviour
 
     DuelManager duelManagerScript;
 
+    [SerializeField] AudioClip clickingClip;
+
     //target pos
     Vector2 targetPos;
     
@@ -55,7 +57,7 @@ public class MastermindBullet : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        GetComponent<AudioSource>().Play(0);
+        
         if (duelManagerScript.clickedBulletCount != 1)
         {
 
@@ -63,6 +65,16 @@ public class MastermindBullet : MonoBehaviour
 
         }
         duelManagerScript.clickedBulletCount = duelManagerScript.clickedBulletCount - 1;
+        GetComponent<AudioSource>().PlayOneShot(clickingClip, 0.4f);
+        GetComponent<CircleCollider2D>().enabled = false;
+        GetComponent<SpriteRenderer>().enabled = false;
+        moveSpeed = 0;
+        StartCoroutine("destroyaWithTimer");
+    }
+    IEnumerator destroyaWithTimer()
+    {
+        yield return new WaitForSeconds(1);
         Destroy(this.gameObject);
+
     }
 }
