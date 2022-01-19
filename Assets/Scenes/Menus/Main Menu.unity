@@ -1973,7 +1973,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -273.6}
+  m_AnchoredPosition: {x: 0, y: -286.51}
   m_SizeDelta: {x: 286.3666, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &908246648
@@ -3776,6 +3776,7 @@ GameObject:
   - component: {fileID: 1596472374}
   - component: {fileID: 1596472373}
   - component: {fileID: 1596472372}
+  - component: {fileID: 1596472375}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3848,6 +3849,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596472375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596472371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929bca2769458ee43bb04f4ca790f710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1597041227
 GameObject:
   m_ObjectHideFlags: 0
@@ -4093,10 +4106,10 @@ MonoBehaviour:
   m_text: "You take a look at the town square searching for an answer:\n\nThe hat
     lady who once smiled at you still trying to sell her hats around the corner.\n\nThose
     boys who you believe are liked only by a few in the town, running through the
-    crowd and one of them who do not like those boys screaming at them.\n\nA dog
-    lying on a dirty pile stack.\n\nA salesperson screaming \"You do not have to
-    be poor! Give the dueler in you a chance!\".\n\nYou feel those words pulling
-    you.\n \n\n"
+    crowd and one of them who do not like those boys screaming at them.\n\nAn old
+    dog lying on a dirty hay pile making people walking change their way.\n\nA salesperson
+    screaming \"You do not have to be poor! Give the dueler in you a chance!\".\n\nYou
+    feel those words pulling you.\n \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
   m_sharedMaterial: {fileID: -6333832300264551496, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}

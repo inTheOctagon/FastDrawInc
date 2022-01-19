@@ -48,6 +48,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Duel 4 & 5/Duel5 TheMastermind.unity
     guid: 1f32b89d90d14334da98ddf6d5aafb83
   - enabled: 1
+    path: Assets/Scenes/Menus/you win.unity
+    guid: 5ed5d37fde2fc2a4bbe4913703d5b4cd
+  - enabled: 1
     path: Assets/Scenes/Menus/You are dead.unity
     guid: b079240070431a147837ed3759abf4c8
   m_configObjects: {}

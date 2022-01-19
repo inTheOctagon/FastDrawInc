@@ -60,8 +60,11 @@ public class EveningManager : MonoBehaviour
     private void Awake()
     {
         StartCoroutine("OptionsPanelSetter");
-        clockTower = GameObject.FindGameObjectWithTag("Clock Tower");
-        //clockTower.GetComponent<ClockTowerManager>().background = false;
+        if (GameObject.FindGameObjectWithTag("Clock Tower") != null)
+        {
+            clockTower = GameObject.FindGameObjectWithTag("Clock Tower");
+            clockTower.GetComponent<ClockTowerManager>().background = false;
+        }
         
     }
 

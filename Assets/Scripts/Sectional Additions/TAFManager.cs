@@ -5,9 +5,9 @@ using UnityEngine;
 public class TAFManager : MonoBehaviour
 {
 
-    void Start()
+    void Awake()
     {
-        ValueManager.newTimerValue = 3.9f;
+        ValueManager.newTimerValue = 4.1f;
     }
 
 

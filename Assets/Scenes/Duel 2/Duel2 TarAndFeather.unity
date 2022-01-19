@@ -660,7 +660,7 @@ MonoBehaviour:
   timerPenaltyText: {fileID: 1744860080}
   playerNameText: {fileID: 2089005012}
   countdownClip: {fileID: 8300000, guid: bb524eea52aa18447b4c5115de354a9f, type: 3}
-  gunshotClip: {fileID: 8300000, guid: 93c91089051dbe74d80ff4d735cc68c0, type: 3}
+  gunshotClip: {fileID: 8300000, guid: 3aa7e9b818607794c8a44a1fd94de16b, type: 3}
   graveClip: {fileID: 8300000, guid: 055e0675656d5ae41a073d014f90a44e, type: 3}
   scoreUpClip: {fileID: 8300000, guid: 0fe5b5d0efdba214389693ab1c13daff, type: 3}
   theStrongOneText: {fileID: 0}
@@ -983,6 +983,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -998,6 +999,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929bca2769458ee43bb04f4ca790f710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -3040,20 +3053,20 @@ PrefabInstance:
       value: "The wind brings his stench of tar and feather through all this distance
         between you and him: You wouldn't guess there were a much of an economical
         competition in his occupation but in this, we hurt together, no matter who
-        we are, I guess.\n\nIf the crosshair touches a tar and feather pool the timer
-        value will decreased by a set amount.\n\n     Next: Press Any Button"
+        we are, you guess.\n\nIf the crosshair touches a tar and feather pool the
+        timer value will decreased by a set amount.\n\n     Next: Press Any Button"
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_fontColor.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6150835657308989794, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 7390581065959252418, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7447121773396821805, guid: f8321383f0d98f74ea33d824eeafa400, type: 3}
       propertyPath: m_Pivot.x

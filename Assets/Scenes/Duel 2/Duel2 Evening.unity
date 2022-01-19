@@ -182,7 +182,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "The barmaid brings your order: A cup of black coffee to wake you up even
-    though the sun gone has long before you ordered it. You want to think a little,
+    though the sun has long gone before you ordered it. You want to think a little,
     that's why and that something to think about is not that hard to find: \n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6f126d31e76d6c47ba1d5f01782d558, type: 2}
@@ -1790,6 +1790,7 @@ GameObject:
   - component: {fileID: 1073611890}
   - component: {fileID: 1073611889}
   - component: {fileID: 1073611888}
+  - component: {fileID: 1073611891}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1862,6 +1863,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1073611891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073611887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929bca2769458ee43bb04f4ca790f710, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1288842855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 560794717973918913, guid: d2cb7610d414d5044a21106bdb359614, type: 3}
